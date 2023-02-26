@@ -129,7 +129,7 @@ public class Topic_07_ConditionStatement_Part_I {
 		{
 			System.out.println("Tháng " + month + " có 28 hoặc 29 ngày");
 		}
-		else System.out.println("Vui lòng nhập số tháng thích hợp");
+		else System.out.println("Vui lòng nhập số tháng thích hợp.");
 	}
 
 }
