@@ -51,7 +51,7 @@ public class Level_03_Register_Page_Object extends BasePage {
     }
 
     @Test
-    public void TC_01_Register_With_Empty_Data()
+    public void Register_01_With_Empty_Data()
     {
     	//waitForElementClickable(driver, "//a[@class='ico-register']");
     	//clickToElement(driver, "//a[@class='ico-register']");
@@ -76,7 +76,7 @@ public class Level_03_Register_Page_Object extends BasePage {
     }
     
     @Test
-    public void TC_02_Register_With_Invalid_Email()
+    public void Register_02_With_Invalid_Email()
     {
     	//waitForElementClickable(driver, "//a[@class='ico-register']");
     	//clickToElement(driver, "//a[@class='ico-register']");
@@ -107,7 +107,7 @@ public class Level_03_Register_Page_Object extends BasePage {
     }
     
     @Test
-    public void TC_03_Register_With_Valid_Email()
+    public void Register_03_With_Valid_Email()
     {
     	//waitForElementClickable(driver, "//a[@class='ico-register']");
     	//clickToElement(driver, "//a[@class='ico-register']");
@@ -139,7 +139,7 @@ public class Level_03_Register_Page_Object extends BasePage {
     }
     
     @Test
-    public void TC_04_Register_With_Existing_Email()
+    public void Register_04_With_Existing_Email()
     {
     	//waitForElementClickable(driver, "//a[@class='ico-register']");
     	//clickToElement(driver, "//a[@class='ico-register']");
@@ -168,7 +168,7 @@ public class Level_03_Register_Page_Object extends BasePage {
     }
     
     @Test
-    public void TC_05_Register_With_Password_Less_Than_6_Characters()
+    public void Register_05_With_Password_Less_Than_6_Characters()
     {
     	//waitForElementClickable(driver, "//a[@class='ico-register']");
     	//clickToElement(driver, "//a[@class='ico-register']");
@@ -196,7 +196,7 @@ public class Level_03_Register_Page_Object extends BasePage {
     	
     }
     @Test
-    public void TC_06_Register_With_ConfirmPassword_Not_Match()
+    public void Register_06_With_ConfirmPassword_Not_Match()
     {
     	//waitForElementClickable(driver, "//a[@class='ico-register']");
     	//clickToElement(driver, "//a[@class='ico-register']");
