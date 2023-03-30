@@ -2,9 +2,6 @@ package learn.nopcommerce.user;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -17,7 +14,7 @@ import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
 
-public class Level_04_Login_Page_Object extends BasePage {
+public class Level_03_Page_Object_Login extends BasePage {
 	private WebDriver driver;
     private String projectPath = System.getProperty("user.dir");
     private String osName = System.getProperty("os.name");
