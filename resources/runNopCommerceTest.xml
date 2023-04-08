@@ -2,9 +2,9 @@
 <suite name="NopCommerce">
   
   <test name="Run on Headless Firefox">
-  	<parameter name = "browser" value = "opera"/>
+  	<parameter name = "browser" value = "chrome"/>
     <classes>
-      <class name="learn.nopcommerce.user.Level_04_Multiple_Browser"/>
+      <class name="learn.nopcommerce.user.Level_05_Page_Factory_Register"/>
     </classes>
   </test> <!-- Test -->
 
