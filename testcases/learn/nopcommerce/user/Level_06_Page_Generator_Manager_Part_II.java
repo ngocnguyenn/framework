@@ -7,48 +7,39 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
+import commons.BaseTest;
 import pageObjectsNopCommerce.HomePageObject;
 import pageObjectsNopCommerce.LoginPageObject;
 import pageObjectsNopCommerce.RegisterPageObject;
 
-public class Level_03_Page_Object_Login extends BasePage {
+public class Level_06_Page_Generator_Manager_Part_II extends BaseTest {
 	private WebDriver driver;
-    private String projectPath = System.getProperty("user.dir");
-    private String osName = System.getProperty("os.name");
-
     private String firstName, lastName, password, validEmail, invalidEmail, notFoundEmail;
     
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
     private LoginPageObject loginPage;
 
+    @Parameters("browser")
     @BeforeClass
-    public void beforeClass() {
+    public void beforeClass(String browserName) {
     	firstName = "Automation";
     	lastName = "FC";
     	password = "12345678";
     	validEmail = "automation" + getRandomNumber() + "@gmail.com";
     	invalidEmail = "FC";
     	notFoundEmail = "automation" + getRandomNumber() + "@gmail.net";
-    	 	
-        if (osName.contains("Windows")) {
-            System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-        } else {
-            System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
-        }
-
-        driver = new ChromeDriver();
+   
+        driver = getBrowserDriver(browserName);
         
         homePage = new HomePageObject(driver);
         registerPage = new RegisterPageObject(driver);
         loginPage = new LoginPageObject(driver);
         
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    	driver.get("https://demo.nopcommerce.com/");
 
     	homePage.clickToRegisterLink();
     	
@@ -71,12 +62,8 @@ public class Level_03_Page_Object_Login extends BasePage {
     @Test
     public void Login_01_With_Empty_Data()
     {
-    	homePage.clickToLoginLink();
-
-    	loginPage = new LoginPageObject(driver);
-    	
+    	loginPage = homePage.clickToLoginLink();
     	loginPage.clickToLoginButton();
-    	
     	Assert.assertEquals(loginPage.getErrorMessageAtEmailTextbox(),"Please enter your email");
     }
     
@@ -84,14 +71,9 @@ public class Level_03_Page_Object_Login extends BasePage {
     public void Login_02_With_Invalid_Email()
     {
     	
-    	homePage.clickToLoginLink();
-
-    	loginPage = new LoginPageObject(driver);
-
+    	loginPage = homePage.clickToLoginLink();
     	loginPage.inputToEmailTextbox(invalidEmail);
-    	
     	loginPage.clickToLoginButton();
-    	
     	Assert.assertEquals(loginPage.getErrorMessageAtEmailTextbox(),"Wrong email");
     	
     }
@@ -100,16 +82,10 @@ public class Level_03_Page_Object_Login extends BasePage {
     public void Login_03_With_Not_Found_Email()
     {
     	
-    	homePage.clickToLoginLink();
-    	
-    	loginPage = new LoginPageObject(driver);
-    	
+    	loginPage = homePage.clickToLoginLink();
     	loginPage.inputToEmailTextbox(notFoundEmail);
-    	
     	loginPage.inputToPasswordTextbox(password);
-    	  	
     	loginPage.clickToLoginButton();
-    	
     	Assert.assertEquals(loginPage.getUnSuccessMessage(), "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found");
     	
     	
@@ -118,47 +94,28 @@ public class Level_03_Page_Object_Login extends BasePage {
     @Test
     public void Login_04_With_Valid_Email_And_Empty_Password()
     {
-        homePage.clickToLoginLink();
-
-    	loginPage = new LoginPageObject(driver);
-    	
+        loginPage = homePage.clickToLoginLink();
     	loginPage.inputToEmailTextbox(validEmail);
-    	  	
     	loginPage.clickToLoginButton();
-    	
     	Assert.assertEquals(loginPage.getUnSuccessMessage(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");    	
     }
     
     @Test
     public void Login_05_With_Valid_Email_And_Wrong_Password()
     {
-    	homePage.clickToLoginLink();
-    	
-    	loginPage = new LoginPageObject(driver);
-    	
+    	loginPage = homePage.clickToLoginLink();
     	loginPage.inputToEmailTextbox(validEmail);
-    	
     	loginPage.inputToPasswordTextbox("87654321");
-    	  	
     	loginPage.clickToLoginButton();
-    	
     	Assert.assertEquals(loginPage.getUnSuccessMessage(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
     }
     @Test
     public void Login_06_With_Valid_Email_And_Valid_Password()
     {
-    	homePage.clickToLoginLink();
-    	
-    	loginPage = new LoginPageObject(driver);
-    	
+    	loginPage = homePage.clickToLoginLink();
     	loginPage.inputToEmailTextbox(validEmail);
-    	
     	loginPage.inputToPasswordTextbox(password);
-    	  	
-    	loginPage.clickToLoginButton();
-    	
-    	homePage = new HomePageObject(driver);
-    	
+    	homePage = loginPage.clickToLoginButton();
     	Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
     }
     

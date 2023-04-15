@@ -1,8 +1,8 @@
-package pageObjects;
+package pageObjectsNopCommerce;
 
 import org.openqa.selenium.WebDriver;
 
-import PageUIs.HomePageUI;
+import PageUIsNopCommerce.HomePageUI;
 import commons.BasePage;
 
 public class HomePageObject extends BasePage{
@@ -21,9 +21,10 @@ public class HomePageObject extends BasePage{
 		clickToElement(driver, HomePageUI.REGISTER_LINK);
 	}
 
-	public void clickToLoginLink() {
+	public LoginPageObject clickToLoginLink() {
 		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
 		clickToElement(driver, HomePageUI.LOGIN_LINK);
+		return PageGeneratorManager.getLoginPageObject(driver);
 		
 	}
 

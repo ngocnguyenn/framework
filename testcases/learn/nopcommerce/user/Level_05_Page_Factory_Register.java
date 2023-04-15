@@ -10,8 +10,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageFactory.HomePageObject;
-import pageFactory.RegisterPageObject;
+import pageFactoryNopCommerce.HomePageObject;
+import pageFactoryNopCommerce.RegisterPageObject;
 
 public class Level_05_Page_Factory_Register extends BaseTest {
 

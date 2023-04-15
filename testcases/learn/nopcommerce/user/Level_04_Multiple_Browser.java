@@ -10,8 +10,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
+import pageObjectsNopCommerce.HomePageObject;
+import pageObjectsNopCommerce.RegisterPageObject;
 
 public class Level_04_Multiple_Browser extends BaseTest {
 

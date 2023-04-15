@@ -7,48 +7,38 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
+import commons.BaseTest;
 import pageObjectsNopCommerce.HomePageObject;
 import pageObjectsNopCommerce.LoginPageObject;
 import pageObjectsNopCommerce.RegisterPageObject;
 
-public class Level_03_Page_Object_Login extends BasePage {
+public class Level_06_Page_Generator_Manager_Part_I extends BaseTest {
 	private WebDriver driver;
-    private String projectPath = System.getProperty("user.dir");
-    private String osName = System.getProperty("os.name");
-
     private String firstName, lastName, password, validEmail, invalidEmail, notFoundEmail;
     
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
     private LoginPageObject loginPage;
 
+    @Parameters("browser")
     @BeforeClass
-    public void beforeClass() {
+    public void beforeClass(String browserName) {
     	firstName = "Automation";
     	lastName = "FC";
     	password = "12345678";
     	validEmail = "automation" + getRandomNumber() + "@gmail.com";
     	invalidEmail = "FC";
     	notFoundEmail = "automation" + getRandomNumber() + "@gmail.net";
-    	 	
-        if (osName.contains("Windows")) {
-            System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-        } else {
-            System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
-        }
-
-        driver = new ChromeDriver();
+    	
+        driver = getBrowserDriver(browserName);
         
         homePage = new HomePageObject(driver);
         registerPage = new RegisterPageObject(driver);
         loginPage = new LoginPageObject(driver);
-        
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    	driver.get("https://demo.nopcommerce.com/");
 
     	homePage.clickToRegisterLink();
     	
