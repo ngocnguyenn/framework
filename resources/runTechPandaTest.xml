@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Tech Panda">
+  
+  <test name="Run on Chrome">
+  	<parameter name = "browser" value = "chrome"/>
+  		<parameter name = "enviroment" value = "chrome"/>
+    		<classes>
+      			<class name="techpanda.user.Login"/>
+    		</classes>
+  </test> <!-- Test -->
+
+</suite> <!-- Suite -->
