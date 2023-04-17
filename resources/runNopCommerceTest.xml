@@ -5,7 +5,7 @@
   	<parameter name = "browser" value = "chrome"/>
   		<parameter name = "enviroment" value = "chrome"/>
     		<classes>
-      			<class name="learn.nopcommerce.user.Level_06_Page_Generator_Manager_Part_III"/>
+      			<class name="learn.nopcommerce.user.Level_06_Page_Generator_Manager_Part_II"/>
     		</classes>
   </test> <!-- Test -->
 
