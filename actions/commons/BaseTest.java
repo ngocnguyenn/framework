@@ -63,7 +63,7 @@ public class BaseTest {
        
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    	driver.get("https://demo.nopcommerce.com/");
+    	driver.get("http://live.techpanda.org/");
 		return driver;
 		
 		}
