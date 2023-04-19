@@ -1,0 +1,14 @@
+package pageObjectsNopCommerce;
+
+import org.openqa.selenium.WebDriver;
+
+import commons.BasePage;
+
+public class DownloadablePageObject extends BasePage{
+
+	WebDriver driver;
+	public DownloadablePageObject(WebDriver driver) {
+		this.driver = driver;
+	}
+
+}
