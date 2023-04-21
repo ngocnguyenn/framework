@@ -12,17 +12,9 @@ import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import pageObjectsNopCommerceAdmin.AdminHomePageObject;
 import pageObjectsNopCommerceAdmin.AdminLoginPageObject;
-import pageObjectsNopCommerceUser.UserAddressPageObject;
-import pageObjectsNopCommerceUser.UserBackInStockSubPageObject;
-import pageObjectsNopCommerceUser.UserChangePasswordPageObject;
-import pageObjectsNopCommerceUser.UserCustomerInforPageObject;
-import pageObjectsNopCommerceUser.UserDownloadablePageObject;
 import pageObjectsNopCommerceUser.UserHomePageObject;
 import pageObjectsNopCommerceUser.UserLoginPageObject;
-import pageObjectsNopCommerceUser.UserMyProductReviewPageObject;
-import pageObjectsNopCommerceUser.UserOrdersPageObject;
 import pageObjectsNopCommerceUser.UserRegisterPageObject;
-import pageObjectsNopCommerceUser.UserRewardPointPageObject;
 
 public class Level_08_Switch_User_Role extends BaseTest {
 	private WebDriver driver;

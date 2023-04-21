@@ -7,7 +7,6 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import commons.BasePageFactory;
-import pageUIsNopCommerceUser.UserLoginPageUI;
 
 public class LoginPageObject extends BasePageFactory{
 
