@@ -1,43 +1,40 @@
 package learn.nopcommerce.user;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import commons.BasePage;
 import commons.BaseTest;
-import pageObjectsNopCommerce.AddressPageObject;
-import pageObjectsNopCommerce.BackInStockSubPageObject;
-import pageObjectsNopCommerce.ChangePasswordPageObject;
-import pageObjectsNopCommerce.CustomerInforPageObject;
-import pageObjectsNopCommerce.DownloadablePageObject;
-import pageObjectsNopCommerce.HomePageObject;
-import pageObjectsNopCommerce.LoginPageObject;
-import pageObjectsNopCommerce.MyProductReviewPageObject;
-import pageObjectsNopCommerce.OrdersPageObject;
-import pageObjectsNopCommerce.RegisterPageObject;
-import pageObjectsNopCommerce.RewardPointPageObject;
+import pageObjectsNopCommerceUser.UserAddressPageObject;
+import pageObjectsNopCommerceUser.UserBackInStockSubPageObject;
+import pageObjectsNopCommerceUser.UserChangePasswordPageObject;
+import pageObjectsNopCommerceUser.UserCustomerInforPageObject;
+import pageObjectsNopCommerceUser.UserDownloadablePageObject;
+import pageObjectsNopCommerceUser.UserHomePageObject;
+import pageObjectsNopCommerceUser.UserLoginPageObject;
+import pageObjectsNopCommerceUser.UserMyProductReviewPageObject;
+import pageObjectsNopCommerceUser.UserOrdersPageObject;
+import pageObjectsNopCommerceUser.UserRegisterPageObject;
+import pageObjectsNopCommerceUser.UserRewardPointPageObject;
 
 public class Level_07_Switch_Page_UI extends BaseTest {
 	private WebDriver driver;
     private String firstName, lastName, password, validEmail;
     
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private LoginPageObject loginPage;
-    private CustomerInforPageObject customerInforPage;
-    private AddressPageObject addressPage;
-    private BackInStockSubPageObject backInStockSubPage;
-    private ChangePasswordPageObject changePasswordPage;
-    private DownloadablePageObject downloadablePage;
-    private MyProductReviewPageObject myProductReviewPage;
-    private OrdersPageObject ordersPage;
-    private RewardPointPageObject rewardPointPage;
+    private UserHomePageObject homePage;
+    private UserRegisterPageObject registerPage;
+    private UserLoginPageObject loginPage;
+    private UserCustomerInforPageObject customerInforPage;
+    private UserAddressPageObject addressPage;
+    private UserBackInStockSubPageObject backInStockSubPage;
+    private UserChangePasswordPageObject changePasswordPage;
+    private UserDownloadablePageObject downloadablePage;
+    private UserMyProductReviewPageObject myProductReviewPage;
+    private UserOrdersPageObject ordersPage;
+    private UserRewardPointPageObject rewardPointPage;
 
     @Parameters("browser")
     @BeforeClass
@@ -47,10 +44,10 @@ public class Level_07_Switch_Page_UI extends BaseTest {
     	password = "12345678";
     	validEmail = "automation" + getRandomNumber() + "@gmail.com";
         driver = getBrowserDriver(browserName);
-        homePage = new HomePageObject(driver);
-        registerPage = new RegisterPageObject(driver);
-        loginPage = new LoginPageObject(driver);
-        customerInforPage = new CustomerInforPageObject(driver);
+        homePage = new UserHomePageObject(driver);
+        registerPage = new UserRegisterPageObject(driver);
+        loginPage = new UserLoginPageObject(driver);
+        customerInforPage = new UserCustomerInforPageObject(driver);
     }
 
     @Test

@@ -16,71 +16,70 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import PageUIsNopCommerce.BasePageUI;
-import pageObjectsNopCommerce.AddressPageObject;
-import pageObjectsNopCommerce.BackInStockSubPageObject;
-import pageObjectsNopCommerce.DownloadablePageObject;
-import pageObjectsNopCommerce.MyProductReviewPageObject;
-import pageObjectsNopCommerce.ChangePasswordPageObject;
-import pageObjectsNopCommerce.CustomerInforPageObject;
-import pageObjectsNopCommerce.OrdersPageObject;
-import pageObjectsNopCommerce.PageGeneratorManager;
-import pageObjectsNopCommerce.RewardPointPageObject;
+import pageObjectsNopCommerceUser.UserAddressPageObject;
+import pageObjectsNopCommerceUser.UserBackInStockSubPageObject;
+import pageObjectsNopCommerceUser.UserChangePasswordPageObject;
+import pageObjectsNopCommerceUser.UserCustomerInforPageObject;
+import pageObjectsNopCommerceUser.UserDownloadablePageObject;
+import pageObjectsNopCommerceUser.UserMyProductReviewPageObject;
+import pageObjectsNopCommerceUser.UserOrdersPageObject;
+import pageObjectsNopCommerceUser.UserRewardPointPageObject;
+import pageUIsNopCommerceUser.UserBasePageUI;
 
 public class BasePage {
 	public static BasePage getBasePageObject()
 	{
 		return new BasePage();
 	}
-	public CustomerInforPageObject openCustomerInforPage(WebDriver driver)
+	public UserCustomerInforPageObject openCustomerInforPage(WebDriver driver)
 	{
-		waitForElementClickable(driver,BasePageUI.CUSTOMER_INFOR_LINK);
-		clickToElement(driver,BasePageUI.CUSTOMER_INFOR_LINK);
-		return PageGeneratorManager.getCustomerInforPageObject(driver);
+		waitForElementClickable(driver,UserBasePageUI.CUSTOMER_INFOR_LINK);
+		clickToElement(driver,UserBasePageUI.CUSTOMER_INFOR_LINK);
+		return PageGeneratorManager.getUserCustomerInforPageObject(driver);
 	}
-	public AddressPageObject openAddressPage(WebDriver driver)
+	public UserAddressPageObject openAddressPage(WebDriver driver)
 	{
-		waitForElementClickable(driver,BasePageUI.ADDRESS_LINK);
-		clickToElement(driver, BasePageUI.ADDRESS_LINK);
-		return PageGeneratorManager.getAddressPageObject(driver);
+		waitForElementClickable(driver,UserBasePageUI.ADDRESS_LINK);
+		clickToElement(driver, UserBasePageUI.ADDRESS_LINK);
+		return PageGeneratorManager.getUserAddressPageObject(driver);
 	}
-	public OrdersPageObject openOrdersPage(WebDriver driver)
+	public UserOrdersPageObject openOrdersPage(WebDriver driver)
 	{
-		waitForElementClickable(driver,BasePageUI.ORDERS_LINK);
-		clickToElement(driver, BasePageUI.ORDERS_LINK);
-		return PageGeneratorManager.getOrdersPageObject(driver);
+		waitForElementClickable(driver,UserBasePageUI.ORDERS_LINK);
+		clickToElement(driver, UserBasePageUI.ORDERS_LINK);
+		return PageGeneratorManager.getUserOrderPageObject(driver);
 	}
-	public DownloadablePageObject openDownloadablePage(WebDriver driver)
+	public UserDownloadablePageObject openDownloadablePage(WebDriver driver)
 	{
-		waitForElementClickable(driver,BasePageUI.DOWNLOADABLE_PRODUCT_LINK);
-		clickToElement(driver, BasePageUI.DOWNLOADABLE_PRODUCT_LINK);
-		return PageGeneratorManager.getDownloadablePageObject(driver);
+		waitForElementClickable(driver,UserBasePageUI.DOWNLOADABLE_PRODUCT_LINK);
+		clickToElement(driver, UserBasePageUI.DOWNLOADABLE_PRODUCT_LINK);
+		return PageGeneratorManager.getUserDownloadablePageObject(driver);
 	}
-	public BackInStockSubPageObject openBackInStockSubPage(WebDriver driver)
+	public UserBackInStockSubPageObject openBackInStockSubPage(WebDriver driver)
 	{
-		waitForElementClickable(driver,BasePageUI.BACKINSTOCKSUB_LINK);
-		clickToElement(driver, BasePageUI.BACKINSTOCKSUB_LINK);
-		return PageGeneratorManager.getBackInStockSubPageObject(driver);
+		waitForElementClickable(driver,UserBasePageUI.BACKINSTOCKSUB_LINK);
+		clickToElement(driver, UserBasePageUI.BACKINSTOCKSUB_LINK);
+		return PageGeneratorManager.getUserBackInStockSubPageObject(driver);
 	}
-	public RewardPointPageObject openRewardPointPage(WebDriver driver)
+	public UserRewardPointPageObject openRewardPointPage(WebDriver driver)
 	{
-		waitForElementClickable(driver,BasePageUI.REWARD_POINT_LINK);
-		clickToElement(driver, BasePageUI.REWARD_POINT_LINK);
-		return PageGeneratorManager.getRewardPointPageObject(driver);
+		waitForElementClickable(driver,UserBasePageUI.REWARD_POINT_LINK);
+		clickToElement(driver, UserBasePageUI.REWARD_POINT_LINK);
+		return PageGeneratorManager.getUserRewardPointPageObject(driver);
 	}
-	public ChangePasswordPageObject openChangePasswordPage(WebDriver driver)
+	public UserChangePasswordPageObject openChangePasswordPage(WebDriver driver)
 	{
-		waitForElementClickable(driver,BasePageUI.CHANGE_PASSWORD_LINK);
-		clickToElement(driver, BasePageUI.CHANGE_PASSWORD_LINK);
-		return PageGeneratorManager.getOpenChangePasswordPageObject(driver);
+		waitForElementClickable(driver,UserBasePageUI.CHANGE_PASSWORD_LINK);
+		clickToElement(driver, UserBasePageUI.CHANGE_PASSWORD_LINK);
+		return PageGeneratorManager.getUserChangePasswordPageObject(driver);
 	}
-	public MyProductReviewPageObject openMyProductReviewPage(WebDriver driver)
+	public UserMyProductReviewPageObject openMyProductReviewPage(WebDriver driver)
 	{
-		waitForElementClickable(driver,BasePageUI.MY_PRODUCT_REVIEW_LINK);
-		clickToElement(driver, BasePageUI.MY_PRODUCT_REVIEW_LINK);
-		return PageGeneratorManager.getMyProductReviewPageObject(driver);
+		waitForElementClickable(driver,UserBasePageUI.MY_PRODUCT_REVIEW_LINK);
+		clickToElement(driver, UserBasePageUI.MY_PRODUCT_REVIEW_LINK);
+		return PageGeneratorManager.getUserMyProductReviewPageObject(driver);
 	}
-	protected void openPageUrl(WebDriver driver, String pageUrl)
+	public void openPageUrl(WebDriver driver, String pageUrl)
 	{
 		driver.get("pageUrl");
 	}

@@ -4,7 +4,7 @@
   	<parameter name = "browser" value = "chrome"/>
   		<parameter name = "enviroment" value = "chrome"/>
     		<classes>
-      			<class name="learn.nopcommerce.user.Level_07_Switch_Page_UI"/>
+      			<class name="learn.nopcommerce.user.Level_08_Switch_User_Role"/>
     		</classes>
   </test> <!-- Test -->
 

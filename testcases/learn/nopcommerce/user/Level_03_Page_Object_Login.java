@@ -10,9 +10,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
-import pageObjectsNopCommerce.HomePageObject;
-import pageObjectsNopCommerce.LoginPageObject;
-import pageObjectsNopCommerce.RegisterPageObject;
+import pageObjectsNopCommerceUser.UserHomePageObject;
+import pageObjectsNopCommerceUser.UserLoginPageObject;
+import pageObjectsNopCommerceUser.UserRegisterPageObject;
 
 public class Level_03_Page_Object_Login extends BasePage {
 	private WebDriver driver;
@@ -21,9 +21,9 @@ public class Level_03_Page_Object_Login extends BasePage {
 
     private String firstName, lastName, password, validEmail, invalidEmail, notFoundEmail;
     
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private LoginPageObject loginPage;
+    private UserHomePageObject homePage;
+    private UserRegisterPageObject registerPage;
+    private UserLoginPageObject loginPage;
 
     @BeforeClass
     public void beforeClass() {
@@ -42,9 +42,9 @@ public class Level_03_Page_Object_Login extends BasePage {
 
         driver = new ChromeDriver();
         
-        homePage = new HomePageObject(driver);
-        registerPage = new RegisterPageObject(driver);
-        loginPage = new LoginPageObject(driver);
+        homePage = new UserHomePageObject(driver);
+        registerPage = new UserRegisterPageObject(driver);
+        loginPage = new UserLoginPageObject(driver);
         
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -73,7 +73,7 @@ public class Level_03_Page_Object_Login extends BasePage {
     {
     	homePage.clickToLoginLink();
 
-    	loginPage = new LoginPageObject(driver);
+    	loginPage = new UserLoginPageObject(driver);
     	
     	loginPage.clickToLoginButton();
     	
@@ -86,7 +86,7 @@ public class Level_03_Page_Object_Login extends BasePage {
     	
     	homePage.clickToLoginLink();
 
-    	loginPage = new LoginPageObject(driver);
+    	loginPage = new UserLoginPageObject(driver);
 
     	loginPage.inputToEmailTextbox(invalidEmail);
     	
@@ -102,7 +102,7 @@ public class Level_03_Page_Object_Login extends BasePage {
     	
     	homePage.clickToLoginLink();
     	
-    	loginPage = new LoginPageObject(driver);
+    	loginPage = new UserLoginPageObject(driver);
     	
     	loginPage.inputToEmailTextbox(notFoundEmail);
     	
@@ -120,7 +120,7 @@ public class Level_03_Page_Object_Login extends BasePage {
     {
         homePage.clickToLoginLink();
 
-    	loginPage = new LoginPageObject(driver);
+    	loginPage = new UserLoginPageObject(driver);
     	
     	loginPage.inputToEmailTextbox(validEmail);
     	  	
@@ -134,7 +134,7 @@ public class Level_03_Page_Object_Login extends BasePage {
     {
     	homePage.clickToLoginLink();
     	
-    	loginPage = new LoginPageObject(driver);
+    	loginPage = new UserLoginPageObject(driver);
     	
     	loginPage.inputToEmailTextbox(validEmail);
     	
@@ -149,7 +149,7 @@ public class Level_03_Page_Object_Login extends BasePage {
     {
     	homePage.clickToLoginLink();
     	
-    	loginPage = new LoginPageObject(driver);
+    	loginPage = new UserLoginPageObject(driver);
     	
     	loginPage.inputToEmailTextbox(validEmail);
     	
@@ -157,7 +157,7 @@ public class Level_03_Page_Object_Login extends BasePage {
     	  	
     	loginPage.clickToLoginButton();
     	
-    	homePage = new HomePageObject(driver);
+    	homePage = new UserHomePageObject(driver);
     	
     	Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
     }

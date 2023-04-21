@@ -10,8 +10,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
-import pageObjectsNopCommerce.HomePageObject;
-import pageObjectsNopCommerce.RegisterPageObject;
+import pageObjectsNopCommerceUser.UserHomePageObject;
+import pageObjectsNopCommerceUser.UserRegisterPageObject;
 
 public class Level_03_Page_Object_Register extends BasePage {
 	private WebDriver driver;
@@ -20,8 +20,8 @@ public class Level_03_Page_Object_Register extends BasePage {
 
     private String firstName, lastName, passWord, emailAddress;
     
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
+    private UserHomePageObject homePage;
+    private UserRegisterPageObject registerPage;
 
     @BeforeClass
     public void beforeClass() {
@@ -38,8 +38,8 @@ public class Level_03_Page_Object_Register extends BasePage {
 
         driver = new ChromeDriver();
         
-        homePage = new HomePageObject(driver);
-        registerPage = new RegisterPageObject(driver);
+        homePage = new UserHomePageObject(driver);
+        registerPage = new UserRegisterPageObject(driver);
         
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);

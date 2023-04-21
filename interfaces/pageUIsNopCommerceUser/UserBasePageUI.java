@@ -1,6 +1,6 @@
-package PageUIsNopCommerce;
+package pageUIsNopCommerceUser;
 
-public class BasePageUI {
+public class UserBasePageUI {
 
 	public static final String ADDRESS_LINK = "//div[@class='master-wrapper-content']//a[text()='Addresses']";
 	public static final String ORDERS_LINK = "//div[@class='master-wrapper-content']//a[text()='Orders']";

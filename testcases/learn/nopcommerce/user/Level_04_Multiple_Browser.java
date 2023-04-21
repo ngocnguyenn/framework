@@ -1,32 +1,30 @@
 package learn.nopcommerce.user;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
 import commons.BaseTest;
-import pageObjectsNopCommerce.HomePageObject;
-import pageObjectsNopCommerce.RegisterPageObject;
+import pageObjectsNopCommerceUser.UserHomePageObject;
+import pageObjectsNopCommerceUser.UserRegisterPageObject;
 
 public class Level_04_Multiple_Browser extends BaseTest {
 
 	private WebDriver driver;
     private String firstName, lastName, passWord, emailAddress;
     
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
+    private UserHomePageObject homePage;
+    private UserRegisterPageObject registerPage;
 
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browserName) {
     	driver = getBrowserDriver(browserName);
-    	homePage = new HomePageObject(driver);
-        registerPage = new RegisterPageObject(driver);
+    	homePage = new UserHomePageObject(driver);
+        registerPage = new UserRegisterPageObject(driver);
 
     	firstName = "Automation";
     	lastName = "FC";
