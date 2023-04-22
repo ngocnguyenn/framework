@@ -10,4 +10,6 @@ public class UserBasePageUI {
 	public static final String CHANGE_PASSWORD_LINK = "xpath=//div[@class='master-wrapper-content']//a[text()='Change password']";
 	public static final String MY_PRODUCT_REVIEW_LINK = "xpath=//div[@class='master-wrapper-content']//a[text()='My product reviews']";
 	public static final String CUSTOMER_INFOR_LINK = "xpath=//div[@class='master-wrapper-content']//a[text()='Customer info']";
+	
+	public static final String DYNAMIC_LOCATOR_LINK = "xpath=//div[@class='master-wrapper-content']//a[text()='%s']";
 }
