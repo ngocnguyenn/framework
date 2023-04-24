@@ -560,6 +560,6 @@ public class BasePage {
             e.printStackTrace();
         }
     }
-    private long longTimeOut = 30;
+    private long longTimeOut = GlobalConstants.LONG_TIMEOUT;
 }
 
