@@ -35,7 +35,7 @@ public class Level_08_Switch_User_Role extends BaseTest {
     	adminEmail = "admin@yourstore.com";
     	adminPassword = "admin";
     	validUserEmail = "automation" + getRandomNumber() + "@gmail.com";
-        driver = getBrowserDriver(browserName);
+        driver = getBrowserDriver(browserName, GlobalConstants.USER_PAGE_URL);
         userHomePage = new UserHomePageObject(driver);
         userRegisterPage = new UserRegisterPageObject(driver);
         userLoginPage = new UserLoginPageObject(driver);

@@ -8,6 +8,7 @@ import java.util.Set;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -110,6 +111,7 @@ public class BasePage {
 		waitForElementClickable(driver, UserBasePageUI.DYNAMIC_LOCATOR_LINK, pageName);
 		clickToElement(driver, UserBasePageUI.DYNAMIC_LOCATOR_LINK, pageName);
 	}
+	
 	public void openPageUrl(WebDriver driver, String pageUrl)
 	{
 		driver.get(pageUrl);
@@ -138,7 +140,7 @@ public class BasePage {
 		driver.navigate().forward();
 	}
 	
-	protected void refreshPage (WebDriver driver)
+	public void refreshPage (WebDriver driver)
 	{
 		driver.navigate().refresh();
 	}
@@ -244,7 +246,7 @@ public class BasePage {
 		return driver.findElement(getByLocator(locatorType));
 	}
 	
-	private List<WebElement> getElements (WebDriver driver, String locatorType)
+	public List<WebElement> getElements (WebDriver driver, String locatorType)
 	{
 		return driver.findElements(getByLocator(locatorType));
 	}
@@ -375,6 +377,15 @@ public class BasePage {
 			element.click();
 		}
 	}
+	protected void checkToDefaultCheckboxRadio(WebDriver driver, String locatorType, String...dynamicValues)
+	{
+		locatorType = String.format(locatorType,(Object[]) dynamicValues);
+		WebElement element = getElement(driver, locatorType);
+		if (!element.isSelected())
+		{
+			element.click();
+		}
+	}
 	protected void uncheckToDefaultCheckbox(WebDriver driver, String locatorType)
 	{
 		WebElement element = getElement(driver, locatorType);
@@ -413,6 +424,17 @@ public class BasePage {
 	{
 		Actions action = new Actions(driver);
 		action.moveToElement(getElement(driver, locatorType)).perform();
+	}
+	protected void pressKeyToElement (WebDriver driver, String locatorType, Keys key)
+	{
+		Actions action = new Actions(driver);
+		action.sendKeys(getElement(driver, locatorType),key).perform();
+	}
+	protected void pressKeyToElement (WebDriver driver, String locatorType, Keys key, String...dynamicValues)
+	{
+		Actions action = new Actions(driver);
+		locatorType = String.format(locatorType,(Object[]) dynamicValues);
+		action.sendKeys(getElement(driver, locatorType),key).perform();
 	}
 	
 	protected Object executeForBrowser(WebDriver driver, String javaScript) {
@@ -551,7 +573,7 @@ public class BasePage {
     	explicitWait.until(ExpectedConditions.elementToBeClickable(getByLocator(locatorType)));
     }
 
-    protected void sleepInSecond(long timeInSecond)
+    public void sleepInSecond(long timeInSecond)
     {
         try{
             Thread.sleep(timeInSecond * 1000);

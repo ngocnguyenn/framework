@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import commons.BaseTest;
+import commons.GlobalConstants;
 import pageObjectsNopCommerceUser.UserAddressPageObject;
 import pageObjectsNopCommerceUser.UserBackInStockSubPageObject;
 import pageObjectsNopCommerceUser.UserChangePasswordPageObject;
@@ -43,7 +44,7 @@ public class Level_07_Switch_Page_UI extends BaseTest {
     	lastName = "FC";
     	password = "12345678";
     	validEmail = "automation" + getRandomNumber() + "@gmail.com";
-        driver = getBrowserDriver(browserName);
+        driver = getBrowserDriver(browserName, GlobalConstants.USER_PAGE_URL);
         homePage = new UserHomePageObject(driver);
         registerPage = new UserRegisterPageObject(driver);
         loginPage = new UserLoginPageObject(driver);

@@ -10,6 +10,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import commons.GlobalConstants;
 import pageFactoryNopCommerce.HomePageObject;
 import pageFactoryNopCommerce.LoginPageObject;
 import pageFactoryNopCommerce.RegisterPageObject;
@@ -26,7 +27,7 @@ public class Level_05_Page_Factory_Login extends BaseTest {
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browserName) {
-    	driver = getBrowserDriver(browserName);
+    	driver = getBrowserDriver(browserName, GlobalConstants.USER_PAGE_URL);
     	firstName = "Automation";
     	lastName = "FC";
     	password = "12345678";

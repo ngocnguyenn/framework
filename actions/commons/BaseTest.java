@@ -16,7 +16,7 @@ public class BaseTest {
 	protected WebDriver driver;
 	
     //private String projectPath = System.getProperty("user.dir");
-	protected WebDriver getBrowserDriver(String browserName)
+	protected WebDriver getBrowserDriver(String browserName, String envName)
 	{
 		BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
 		if(browserList == BrowserList.FIREFOX)
@@ -62,7 +62,7 @@ public class BaseTest {
        
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    	driver.get(GlobalConstants.USER_PAGE_URL);
+    	driver.get(envName);
 		return driver;
 		
 		}

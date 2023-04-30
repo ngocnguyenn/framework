@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import commons.BaseTest;
+import commons.GlobalConstants;
 import pageObjectsNopCommerceUser.UserHomePageObject;
 import pageObjectsNopCommerceUser.UserLoginPageObject;
 import pageObjectsNopCommerceUser.UserRegisterPageObject;
@@ -28,7 +29,7 @@ public class Level_06_Page_Generator_Manager_Part_III extends BaseTest {
     	validEmail = "automation" + getRandomNumber() + "@gmail.com";
     	invalidEmail = "FC";
     	notFoundEmail = "automation" + getRandomNumber() + "@gmail.net";
-        driver = getBrowserDriver(browserName);
+        driver = getBrowserDriver(browserName, GlobalConstants.USER_PAGE_URL);
         homePage = new UserHomePageObject(driver);
         registerPage = new UserRegisterPageObject(driver);
         loginPage = new UserLoginPageObject(driver);

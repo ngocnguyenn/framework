@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import commons.BaseTest;
+import commons.GlobalConstants;
 import pageObjectsNopCommerceUser.UserHomePageObject;
 import pageObjectsNopCommerceUser.UserRegisterPageObject;
 
@@ -22,7 +23,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browserName) {
-    	driver = getBrowserDriver(browserName);
+    	driver = getBrowserDriver(browserName, GlobalConstants.USER_PAGE_URL);
     	homePage = new UserHomePageObject(driver);
         registerPage = new UserRegisterPageObject(driver);
 
