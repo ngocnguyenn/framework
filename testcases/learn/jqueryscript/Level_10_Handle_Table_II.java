@@ -8,17 +8,17 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjectsJQueryScript.TablePageObject;
+import pageObjectsJQueryScript.dataTable.HomePageObject;
 
-public class Level_11_Handle_Table_II extends BaseTest{
+public class Level_10_Handle_Table_II extends BaseTest{
 	private WebDriver driver;
-	private TablePageObject tablePage;
+	private HomePageObject tablePage;
 	@Parameters("browser")
     @BeforeClass
     public void beforeClass(String browserName) {
 		String envName = "https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/";
 		driver = getBrowserDriver(browserName, envName);
-		tablePage = new TablePageObject(driver);
+		tablePage = new HomePageObject(driver);
 	}
 
 	@Test

@@ -2,9 +2,9 @@
 <suite name="JQueryScript">
   <test name="Run on Chrome">
   	<parameter name = "browser" value = "chrome"/>
-  		<parameter name = "enviroment" value = "chrome"/>
+  		<parameter name = "url" value = "https://blueimp.github.io/jQuery-File-Upload/"/>
     		<classes>
-      			<class name="learn.jqueryscript.Level_11_Handle_Table_II"/>
+      			<class name="learn.jqueryscript.Level_11_Upload_Files"/>
     		</classes>
   </test> <!-- Test -->
 

@@ -25,6 +25,7 @@ import pageObjectsNopCommerceUser.UserDownloadablePageObject;
 import pageObjectsNopCommerceUser.UserMyProductReviewPageObject;
 import pageObjectsNopCommerceUser.UserOrdersPageObject;
 import pageObjectsNopCommerceUser.UserRewardPointPageObject;
+import pageUIsJQueryScript.BasePageUI;
 import pageUIsNopCommerceUser.UserBasePageUI;
 
 public class BasePage {
@@ -526,6 +527,15 @@ public class BasePage {
                 getElement(driver, locatorType));
         return status;
     }
+    protected boolean isImageLoaded(WebDriver driver, String locatorType, String...dynamicValues) 
+    {
+    	locatorType = String.format(locatorType,(Object[]) dynamicValues);
+    	JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        boolean status = (boolean) jsExecutor.executeScript(
+                "return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0",
+                getElement(driver, locatorType));
+        return status;
+    }
     
     protected void waitForElementVisible(WebDriver driver, String locatorType)
     {
@@ -573,6 +583,17 @@ public class BasePage {
     	explicitWait.until(ExpectedConditions.elementToBeClickable(getByLocator(locatorType)));
     }
 
+    public void uploadMultipleFiles(WebDriver driver, String...fileNames)
+    {
+    	String filePath = GlobalConstants.UPLOAD_FILE;
+    	String fullFileName = "";
+    	for (String file:fileNames)
+    	{
+    		fullFileName = fullFileName + filePath + file + "\n";
+    	}
+    	fullFileName = fullFileName.trim();
+    	getElement(driver, BasePageUI.UPLOAD_FILE).sendKeys(fullFileName);
+    }
     public void sleepInSecond(long timeInSecond)
     {
         try{

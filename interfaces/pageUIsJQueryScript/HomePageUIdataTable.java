@@ -1,6 +1,6 @@
 package pageUIsJQueryScript;
 
-public class TablePageUI {
+public class HomePageUIdataTable {
 
 	public static final String PAGINATION_BY_PAGE_NUMBER_LINK = "xpath=//li[@class='qgrd-pagination-page']/a[text()='%s']";
 	public static final String PAGINATION_PAGE_ACTIVED_BY_NUMBER_LINK = "xpath=//li[@class='qgrd-pagination-page']/a[@class='qgrd-pagination-page-link active' and text() = '%s']";
