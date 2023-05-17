@@ -87,7 +87,7 @@ public class BaseTest {
 		return pass;
 	}
 
-	protected boolean verifyFailed(boolean condition) {
+	protected boolean verifyFalse(boolean condition) {
 		boolean pass = true;
 		try {
 			if (condition == false) {

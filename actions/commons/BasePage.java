@@ -4,6 +4,9 @@ package commons;
 
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import javax.lang.model.util.Elements;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -17,14 +20,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageObjectsNopCommerceUser.UserAddressPageObject;
-import pageObjectsNopCommerceUser.UserBackInStockSubPageObject;
-import pageObjectsNopCommerceUser.UserChangePasswordPageObject;
-import pageObjectsNopCommerceUser.UserCustomerInforPageObject;
-import pageObjectsNopCommerceUser.UserDownloadablePageObject;
-import pageObjectsNopCommerceUser.UserMyProductReviewPageObject;
-import pageObjectsNopCommerceUser.UserOrdersPageObject;
-import pageObjectsNopCommerceUser.UserRewardPointPageObject;
+import pageObjects.NopCommerce.User.UserAddressPageObject;
+import pageObjects.NopCommerce.User.UserBackInStockSubPageObject;
+import pageObjects.NopCommerce.User.UserChangePasswordPageObject;
+import pageObjects.NopCommerce.User.UserCustomerInforPageObject;
+import pageObjects.NopCommerce.User.UserDownloadablePageObject;
+import pageObjects.NopCommerce.User.UserMyProductReviewPageObject;
+import pageObjects.NopCommerce.User.UserOrdersPageObject;
+import pageObjects.NopCommerce.User.UserRewardPointPageObject;
 import pageUIsJQueryScript.BasePageUI;
 import pageUIsNopCommerceUser.UserBasePageUI;
 
@@ -399,6 +402,31 @@ public class BasePage {
 	{
 		return getElement(driver, locatorType).isDisplayed();
 	}
+	public boolean isElementUndisplayed(WebDriver driver, String locatorType) {
+		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
+		List<WebElement> elements = getElements(driver, locatorType);
+		overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+		if(elements.size()==0)
+		{
+			return true;
+		} else if (elements.size() > 0 && !elements.get(0).isDisplayed())
+		{
+			return true;
+		} else return false;
+	}
+	public boolean isElementUndisplayed(WebDriver driver, String locatorType, String...dynamicValues) {
+		locatorType = String.format(locatorType,(Object[]) dynamicValues);
+		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
+		List<WebElement> elements = getElements(driver, locatorType);
+		overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+		if(elements.size()==0)
+		{
+			return true;
+		} else if (elements.size() > 0 && !elements.get(0).isDisplayed())
+		{
+			return true;
+		} else return false;
+	}
 	protected Boolean isElementDisplayed(WebDriver driver, String locatorType, String...dynamicValues)
 	{
 		locatorType = String.format(locatorType,(Object[]) dynamicValues);
@@ -536,7 +564,10 @@ public class BasePage {
                 getElement(driver, locatorType));
         return status;
     }
-    
+    public void overrideGlobalTimeout(WebDriver driver, long timeOut)
+    {
+    	driver.manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
+    }
     protected void waitForElementVisible(WebDriver driver, String locatorType)
     {
     	WebDriverWait explicitWait = new WebDriverWait(driver, longTimeOut);

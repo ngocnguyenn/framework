@@ -8,7 +8,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjectsJQueryScript.uploadFiles.HomePageObject;
+import pageObjects.JQueryScript.uploadFiles.HomePageObject;
 
 public class Level_11_Upload_Files extends BaseTest{
 	private WebDriver driver;

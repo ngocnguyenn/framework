@@ -2,19 +2,19 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjectsNopCommerceAdmin.AdminHomePageObject;
-import pageObjectsNopCommerceAdmin.AdminLoginPageObject;
-import pageObjectsNopCommerceUser.UserAddressPageObject;
-import pageObjectsNopCommerceUser.UserBackInStockSubPageObject;
-import pageObjectsNopCommerceUser.UserChangePasswordPageObject;
-import pageObjectsNopCommerceUser.UserCustomerInforPageObject;
-import pageObjectsNopCommerceUser.UserDownloadablePageObject;
-import pageObjectsNopCommerceUser.UserHomePageObject;
-import pageObjectsNopCommerceUser.UserLoginPageObject;
-import pageObjectsNopCommerceUser.UserMyProductReviewPageObject;
-import pageObjectsNopCommerceUser.UserOrdersPageObject;
-import pageObjectsNopCommerceUser.UserRegisterPageObject;
-import pageObjectsNopCommerceUser.UserRewardPointPageObject;
+import pageObjects.NopCommerce.Admin.AdminHomePageObject;
+import pageObjects.NopCommerce.Admin.AdminLoginPageObject;
+import pageObjects.NopCommerce.User.UserAddressPageObject;
+import pageObjects.NopCommerce.User.UserBackInStockSubPageObject;
+import pageObjects.NopCommerce.User.UserChangePasswordPageObject;
+import pageObjects.NopCommerce.User.UserCustomerInforPageObject;
+import pageObjects.NopCommerce.User.UserDownloadablePageObject;
+import pageObjects.NopCommerce.User.UserHomePageObject;
+import pageObjects.NopCommerce.User.UserLoginPageObject;
+import pageObjects.NopCommerce.User.UserMyProductReviewPageObject;
+import pageObjects.NopCommerce.User.UserOrdersPageObject;
+import pageObjects.NopCommerce.User.UserRegisterPageObject;
+import pageObjects.NopCommerce.User.UserRewardPointPageObject;
 
 public class PageGeneratorManager {
 

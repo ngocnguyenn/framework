@@ -9,17 +9,17 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import commons.BaseTest;
 import commons.GlobalConstants;
-import pageObjectsNopCommerceUser.UserAddressPageObject;
-import pageObjectsNopCommerceUser.UserBackInStockSubPageObject;
-import pageObjectsNopCommerceUser.UserChangePasswordPageObject;
-import pageObjectsNopCommerceUser.UserCustomerInforPageObject;
-import pageObjectsNopCommerceUser.UserDownloadablePageObject;
-import pageObjectsNopCommerceUser.UserHomePageObject;
-import pageObjectsNopCommerceUser.UserLoginPageObject;
-import pageObjectsNopCommerceUser.UserMyProductReviewPageObject;
-import pageObjectsNopCommerceUser.UserOrdersPageObject;
-import pageObjectsNopCommerceUser.UserRegisterPageObject;
-import pageObjectsNopCommerceUser.UserRewardPointPageObject;
+import pageObjects.NopCommerce.User.UserAddressPageObject;
+import pageObjects.NopCommerce.User.UserBackInStockSubPageObject;
+import pageObjects.NopCommerce.User.UserChangePasswordPageObject;
+import pageObjects.NopCommerce.User.UserCustomerInforPageObject;
+import pageObjects.NopCommerce.User.UserDownloadablePageObject;
+import pageObjects.NopCommerce.User.UserHomePageObject;
+import pageObjects.NopCommerce.User.UserLoginPageObject;
+import pageObjects.NopCommerce.User.UserMyProductReviewPageObject;
+import pageObjects.NopCommerce.User.UserOrdersPageObject;
+import pageObjects.NopCommerce.User.UserRegisterPageObject;
+import pageObjects.NopCommerce.User.UserRewardPointPageObject;
 
 public class Level_07_Switch_Page_UI extends BaseTest {
 	private WebDriver driver;

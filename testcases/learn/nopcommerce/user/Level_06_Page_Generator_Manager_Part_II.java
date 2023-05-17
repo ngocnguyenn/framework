@@ -9,9 +9,9 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import commons.BaseTest;
 import commons.GlobalConstants;
-import pageObjectsNopCommerceUser.UserHomePageObject;
-import pageObjectsNopCommerceUser.UserLoginPageObject;
-import pageObjectsNopCommerceUser.UserRegisterPageObject;
+import pageObjects.NopCommerce.User.UserHomePageObject;
+import pageObjects.NopCommerce.User.UserLoginPageObject;
+import pageObjects.NopCommerce.User.UserRegisterPageObject;
 
 public class Level_06_Page_Generator_Manager_Part_II extends BaseTest {
 	private WebDriver driver;

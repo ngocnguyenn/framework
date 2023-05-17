@@ -2,25 +2,15 @@ package learn.nopcommerce.user;
 
 import java.util.Random;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import commons.BaseTest;
 import commons.GlobalConstants;
-import commons.PageGeneratorManager;
-import pageObjectsNopCommerceUser.UserAddressPageObject;
-import pageObjectsNopCommerceUser.UserBackInStockSubPageObject;
-import pageObjectsNopCommerceUser.UserChangePasswordPageObject;
-import pageObjectsNopCommerceUser.UserCustomerInforPageObject;
-import pageObjectsNopCommerceUser.UserDownloadablePageObject;
-import pageObjectsNopCommerceUser.UserHomePageObject;
-import pageObjectsNopCommerceUser.UserLoginPageObject;
-import pageObjectsNopCommerceUser.UserMyProductReviewPageObject;
-import pageObjectsNopCommerceUser.UserOrdersPageObject;
-import pageObjectsNopCommerceUser.UserRegisterPageObject;
-import pageObjectsNopCommerceUser.UserRewardPointPageObject;
+import pageObjects.NopCommerce.User.UserHomePageObject;
+import pageObjects.NopCommerce.User.UserLoginPageObject;
+import pageObjects.NopCommerce.User.UserRegisterPageObject;
 
 public class Level_12_Assert_Verify extends BaseTest {
 	private WebDriver driver;
@@ -33,10 +23,6 @@ public class Level_12_Assert_Verify extends BaseTest {
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browserName) {
-    	firstName = "Automation";
-    	lastName = "FC";
-    	password = "12345678";
-    	validEmail = "automation" + getRandomNumber() + "@gmail.com";
         driver = getBrowserDriver(browserName, GlobalConstants.USER_PAGE_URL);
         homePage = new UserHomePageObject(driver);
         registerPage = new UserRegisterPageObject(driver);

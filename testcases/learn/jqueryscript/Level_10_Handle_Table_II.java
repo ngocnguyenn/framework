@@ -8,7 +8,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjectsJQueryScript.dataTable.HomePageObject;
+import pageObjects.JQueryScript.dataTable.HomePageObject;
 
 public class Level_10_Handle_Table_II extends BaseTest{
 	private WebDriver driver;
