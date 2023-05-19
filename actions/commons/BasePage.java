@@ -568,6 +568,13 @@ public class BasePage {
     {
     	driver.manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
     }
+    protected void waitForElementUndisplayed(WebDriver driver, String locatorType)
+    {
+    	WebDriverWait explicitWait = new WebDriverWait(driver, longTimeOut);
+    	overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
+    	explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByLocator(locatorType)));
+    	overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+    }
     protected void waitForElementVisible(WebDriver driver, String locatorType)
     {
     	WebDriverWait explicitWait = new WebDriverWait(driver, longTimeOut);

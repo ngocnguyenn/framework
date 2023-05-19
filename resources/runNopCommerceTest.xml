@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="NopCommerce">
-	<listeners>
-		<listener class-name = "commons.MethodListener"/>
-	</listeners>
+	
+  <listeners>
+	<listener class-name="commons.MethodListener"/>
+	<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  </listeners>
+	
   <test name="Run on Chrome">
   	<parameter name = "browser" value = "chrome"/>
-  		<parameter name = "enviroment" value = "chrome"/>
+  		<parameter name = "enviroment" value = "dev"/>
     		<classes>
-      			<class name="learn.nopcommerce.user.Level_12_Assert_Verify"/>
+      			<class name="learn.nopcommerce.user.Level_14_Log_ReportNG"/>
     		</classes>
   </test> <!-- Test -->
 

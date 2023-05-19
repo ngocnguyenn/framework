@@ -12,7 +12,7 @@ import pageObjects.NopCommerce.User.UserHomePageObject;
 import pageObjects.NopCommerce.User.UserLoginPageObject;
 import pageObjects.NopCommerce.User.UserRegisterPageObject;
 
-public class Level_12_Assert_Verify extends BaseTest {
+public class Level_14_Log_ReportNG extends BaseTest {
 	private WebDriver driver;
     private String firstName, lastName, password, validEmail;
     
@@ -36,23 +36,47 @@ public class Level_12_Assert_Verify extends BaseTest {
     @Test
     public void TC_01_Register_With_Valid_Infor()
     {
+    	log.info("Register - Step 01: Navigate to Register page");
     	registerPage = homePage.clickToRegisterLink();
+    	
+    	log.info("Register - Step 02: Input to First name textbox");
     	registerPage.inputToFirstNameTextbox(firstName);
+
+    	log.info("Register - Step 03: Input to Last name textbox");
     	registerPage.inputToLastNameTextbox(lastName);
+
+    	log.info("Register - Step 04: Input to Email textbox");
     	registerPage.inputToEmailTextbox(validEmail);
+
+    	log.info("Register - Step 05: Input to Password textbox");
     	registerPage.inputToPasswordTextbox(password);
+
+    	log.info("Register - Step 06: Input to Confirm Password textbox");
     	registerPage.inputToConfirmPasswordTextbox(password);
+
+    	log.info("Register - Step 07: Click to Register button");
     	registerPage.clickToRegisterButton();
+
+    	log.info("Register - Step 08: Verify register success is display");
     	verifyEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
     }
     
     @Test
     public void TC_02_Login_With_Valid_Infor()
     {
+    	log.info("Login - Step 01: Navigate to Login page");
     	loginPage = homePage.clickToLoginLink();
+    	
+    	log.info("Login - Step 02: Input to Email textbox");
     	loginPage.inputToEmailTextbox(validEmail);
+
+    	log.info("Login - Step 03: Input to Password textbox");
     	loginPage.inputToPasswordTextbox(password);
+
+    	log.info("Login - Step 04: Click to Login button");
     	homePage = loginPage.clickToLoginButton();
+
+    	log.info("Login - Step 05: Verify My Account link is display");
     	verifyTrue(homePage.isMyAccountLinkDisplayed());
     }
     

@@ -1,0 +1,13 @@
+[INFO ] [2023-05-19 13:38:47,527] Register - Step 01: Navigate to Register page
+[INFO ] [2023-05-19 13:38:48,653] Register - Step 02: Input to First name textbox
+[INFO ] [2023-05-19 13:38:48,843] Register - Step 03: Input to Last name textbox
+[INFO ] [2023-05-19 13:38:49,017] Register - Step 04: Input to Email textbox
+[INFO ] [2023-05-19 13:38:49,190] Register - Step 05: Input to Password textbox
+[INFO ] [2023-05-19 13:38:49,362] Register - Step 06: Input to Confirm Password textbox
+[INFO ] [2023-05-19 13:38:49,531] Register - Step 07: Click to Register button
+[INFO ] [2023-05-19 13:38:50,246] Register - Step 08: Verify register success is display
+[INFO ] [2023-05-19 13:38:50,327] Login - Step 01: Navigate to Login page
+[INFO ] [2023-05-19 13:38:50,728] Login - Step 02: Input to Email textbox
+[INFO ] [2023-05-19 13:38:50,878] Login - Step 03: Input to Password textbox
+[INFO ] [2023-05-19 13:38:51,028] Login - Step 04: Click to Login button
+[INFO ] [2023-05-19 13:38:51,754] Login - Step 05: Verify My Account link is display

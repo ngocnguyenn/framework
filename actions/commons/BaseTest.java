@@ -2,6 +2,8 @@ package commons;
 
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,6 +18,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
 
 	protected WebDriver driver;
+	protected final Log log;
+
+	// Constructor
+	protected BaseTest() {
+		log = LogFactory.getLog(getClass());
+	}
 	
     //private String projectPath = System.getProperty("user.dir");
 	protected WebDriver getBrowserDriver(String browserName, String envName)
@@ -79,8 +87,6 @@ public class BaseTest {
 			Assert.assertTrue(condition);
 		} catch (Throwable e) {
 			pass = false;
-
-			// Add lỗi vào ReportNG
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
 		}
@@ -117,6 +123,7 @@ public class BaseTest {
 		}
 		return pass;
 	}
+	
 
 	/*private String getEnviromentUrl(String envName)
 	{
