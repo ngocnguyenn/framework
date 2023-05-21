@@ -1,13 +1,13 @@
-[INFO ] [2023-05-19 13:38:47,527] Register - Step 01: Navigate to Register page
-[INFO ] [2023-05-19 13:38:48,653] Register - Step 02: Input to First name textbox
-[INFO ] [2023-05-19 13:38:48,843] Register - Step 03: Input to Last name textbox
-[INFO ] [2023-05-19 13:38:49,017] Register - Step 04: Input to Email textbox
-[INFO ] [2023-05-19 13:38:49,190] Register - Step 05: Input to Password textbox
-[INFO ] [2023-05-19 13:38:49,362] Register - Step 06: Input to Confirm Password textbox
-[INFO ] [2023-05-19 13:38:49,531] Register - Step 07: Click to Register button
-[INFO ] [2023-05-19 13:38:50,246] Register - Step 08: Verify register success is display
-[INFO ] [2023-05-19 13:38:50,327] Login - Step 01: Navigate to Login page
-[INFO ] [2023-05-19 13:38:50,728] Login - Step 02: Input to Email textbox
-[INFO ] [2023-05-19 13:38:50,878] Login - Step 03: Input to Password textbox
-[INFO ] [2023-05-19 13:38:51,028] Login - Step 04: Click to Login button
-[INFO ] [2023-05-19 13:38:51,754] Login - Step 05: Verify My Account link is display
+[INFO ] [2023-05-21 21:49:18,689] Register - Step 01: Navigate to Register page
+[INFO ] [2023-05-21 21:49:19,783] Register - Step 02: Input to First name textbox
+[INFO ] [2023-05-21 21:49:20,045] Register - Step 03: Input to Last name textbox
+[INFO ] [2023-05-21 21:49:20,230] Register - Step 04: Input to Email textbox
+[INFO ] [2023-05-21 21:49:20,429] Register - Step 05: Input to Password textbox
+[INFO ] [2023-05-21 21:49:20,615] Register - Step 06: Input to Confirm Password textbox
+[INFO ] [2023-05-21 21:49:20,797] Register - Step 07: Click to Register button
+[INFO ] [2023-05-21 21:49:21,591] Register - Step 08: Verify register success is display
+[INFO ] [2023-05-21 21:49:21,837] Login - Step 01: Navigate to Login page
+[INFO ] [2023-05-21 21:49:22,303] Login - Step 02: Input to Email textbox
+[INFO ] [2023-05-21 21:49:22,482] Login - Step 03: Input to Password textbox
+[INFO ] [2023-05-21 21:49:22,678] Login - Step 04: Click to Login button
+[INFO ] [2023-05-21 21:49:23,490] Login - Step 05: Verify My Account link is display
