@@ -1,42 +1,44 @@
-package learn.nopcommerce.user;
+package learn.nopcommerce.common;
 
-import java.util.Random;
+import java.lang.reflect.Method;
+import java.util.Set;
+
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+
 import commons.BaseTest;
 import commons.GlobalConstants;
 import pageObjects.NopCommerce.User.UserHomePageObject;
 import pageObjects.NopCommerce.User.UserLoginPageObject;
 import pageObjects.NopCommerce.User.UserRegisterPageObject;
 
-public class Level_15_ReportNG_Screenshots extends BaseTest {
+public class Common_01_Register_Cookie extends BaseTest{
 	private WebDriver driver;
-    private String firstName, lastName, password, validEmail;
-    
+    private String firstName, lastName; 
+    public static String PASSWORD, EMAIL;
+
+    public static Set<Cookie> loggedCookie;
     private UserHomePageObject homePage;
     private UserRegisterPageObject registerPage;
     private UserLoginPageObject loginPage;
 
     @Parameters("browser")
-    @BeforeClass
-    public void beforeClass(String browserName) {
-        driver = getBrowserDriver(browserName, GlobalConstants.USER_PAGE_URL);
+    @BeforeTest
+    public void TC_01_Register_With_Valid_Infor(Method method, String browserName)
+    {
+    	driver = getBrowserDriver(browserName, GlobalConstants.USER_PAGE_URL);
         firstName = "Automation";
-    	lastName = "FC";
-    	password = "12345678";
-    	validEmail = "automation" + getRandomNumber() + "@gmail.com";
+       	lastName = "FC";
+       	PASSWORD = "12345678";
+       	EMAIL = "automation" + getRandomNumber() + "@gmail.com";
         homePage = new UserHomePageObject(driver);
         registerPage = new UserRegisterPageObject(driver);
         loginPage = new UserLoginPageObject(driver);
-    }
-
-    @Test
-    public void TC_01_Register_With_Valid_Infor()
-    {
+    	registerPage = homePage.clickToRegisterLink();
+    	
     	log.info("Register - Step 01: Navigate to Register page");
     	registerPage = homePage.clickToRegisterLink();
     	
@@ -47,50 +49,33 @@ public class Level_15_ReportNG_Screenshots extends BaseTest {
     	registerPage.inputToLastNameTextbox(lastName);
 
     	log.info("Register - Step 04: Input to Email textbox");
-    	registerPage.inputToEmailTextbox(validEmail);
+    	registerPage.inputToEmailTextbox(EMAIL);
 
     	log.info("Register - Step 05: Input to Password textbox");
-    	registerPage.inputToPasswordTextbox(password);
+    	registerPage.inputToPasswordTextbox(PASSWORD);
 
     	log.info("Register - Step 06: Input to Confirm Password textbox");
-    	registerPage.inputToConfirmPasswordTextbox(password);
+    	registerPage.inputToConfirmPasswordTextbox(PASSWORD);
 
     	log.info("Register - Step 07: Click to Register button");
     	registerPage.clickToRegisterButton();
-
+    	
     	log.info("Register - Step 08: Verify register success is display");
-    	Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed..");
-    }
-    
-    @Test
-    public void TC_02_Login_With_Valid_Infor()
-    {
+    	Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
     	log.info("Login - Step 01: Navigate to Login page");
+    	
     	loginPage = homePage.clickToLoginLink();
     	
     	log.info("Login - Step 02: Input to Email textbox");
-    	loginPage.inputToEmailTextbox(validEmail);
+    	loginPage.inputToEmailTextbox(EMAIL);
 
     	log.info("Login - Step 03: Input to Password textbox");
-    	loginPage.inputToPasswordTextbox(password);
+    	loginPage.inputToPasswordTextbox(PASSWORD);
 
     	log.info("Login - Step 04: Click to Login button");
     	homePage = loginPage.clickToLoginButton();
-
-    	log.info("Login - Step 05: Verify My Account link is display");
-    	Assert.assertFalse(homePage.isMyAccountLinkDisplayed());
-    }
-    
-   
-    public int getRandomNumber()
-    {
-        Random rand = new Random();
-        return rand.nextInt(999);
-    }
-    
-    @AfterClass
-    public void afterClass()
-    {
+    	loggedCookie = homePage.getAllCookies(driver);
     	driver.close();
     }
+   
 }

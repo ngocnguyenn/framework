@@ -1,5 +1,6 @@
 package commons;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
@@ -128,6 +129,11 @@ public class BaseTest {
 		return this.driver;
 	}
 	
+	public int getRandomNumber()
+	{
+		Random rand = new Random();
+	    return rand.nextInt(999);
+	}
 
 	/*private String getEnviromentUrl(String envName)
 	{

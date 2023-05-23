@@ -1,7 +1,6 @@
 package learn.nopcommerce.user;
 
 import java.lang.reflect.Method;
-import java.util.Random;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -42,7 +41,7 @@ public class Level_16_ExtentReport_Screenshots extends BaseTest {
     @Test
     public void TC_01_Register_With_Valid_Infor(Method method)
     {
-    	ExtentTestManager.startTest(method.getName(),"TC_01_Register_With_Valid_Infor");
+    	ExtentTestManager.startTest(method.getName(),"Register with valid information");
     	ExtentTestManager.getTest().log(Status.INFO, "Register - Step 01: Navigate to Register page");
     	registerPage = homePage.clickToRegisterLink();
     	
@@ -71,7 +70,8 @@ public class Level_16_ExtentReport_Screenshots extends BaseTest {
     @Test
     public void TC_02_Login_With_Valid_Infor(Method method)
     {
-    	ExtentTestManager.startTest(method.getName(),"Login - Step 01: Navigate to Login page");
+    	ExtentTestManager.startTest(method.getName(),"Login with valid information");
+    	ExtentTestManager.getTest().log(Status.INFO,"Login - Step 01: Navigate to Login page");
     	loginPage = homePage.clickToLoginLink();
     	
     	ExtentTestManager.getTest().log(Status.INFO, "Login - Step 02: Input to Email textbox");
@@ -88,12 +88,6 @@ public class Level_16_ExtentReport_Screenshots extends BaseTest {
     }
     
    
-    public int getRandomNumber()
-    {
-        Random rand = new Random();
-        return rand.nextInt(999);
-    }
-    
     @AfterClass
     public void afterClass()
     {

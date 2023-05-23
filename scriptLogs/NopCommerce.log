@@ -89,3 +89,17 @@
 [INFO ] [2023-05-21 21:49:22,482] Login - Step 03: Input to Password textbox
 [INFO ] [2023-05-21 21:49:22,678] Login - Step 04: Click to Login button
 [INFO ] [2023-05-21 21:49:23,490] Login - Step 05: Verify My Account link is display
+[INFO ] [2023-05-23 14:08:15,723] Login - Step 01: Navigate to Login page
+[INFO ] [2023-05-23 14:08:16,824] Login - Step 02: Input to Email textbox
+[INFO ] [2023-05-23 14:08:17,022] Login - Step 03: Input to Password textbox
+[INFO ] [2023-05-23 14:08:17,238] Login - Step 04: Click to Login button
+[INFO ] [2023-05-23 14:08:18,180] Login - Step 05: Verify My Account link is display
+[INFO ] [2023-05-23 14:08:53,385] Login - Step 01: Navigate to Login page
+[INFO ] [2023-05-23 14:08:53,899] Login - Step 02: Input to Email textbox
+[INFO ] [2023-05-23 14:08:54,122] Login - Step 03: Input to Password textbox
+[INFO ] [2023-05-23 14:08:54,287] Login - Step 04: Click to Login button
+[INFO ] [2023-05-23 14:08:55,177] Login - Step 05: Verify My Account link is display
+[INFO ] [2023-05-23 14:40:02,535] Login - Step 01: Navigate to Login page
+[INFO ] [2023-05-23 14:40:03,641] Login - Step 02: Set Cookie and reload page
+[INFO ] [2023-05-23 14:40:06,781] Login - Step 05: Verify My Account link is display
+[INFO ] [2023-05-23 14:40:07,269] Login - Step 05: Verify My Account link is display
