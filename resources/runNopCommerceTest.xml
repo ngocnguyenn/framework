@@ -12,8 +12,7 @@
   	<parameter name = "browser" value = "chrome"/>
   		<parameter name = "enviroment" value = "dev"/>
     		<classes>
-				<class name="learn.nopcommerce.common.Common_01_Register_Cookie"/>
-      			<class name="learn.nopcommerce.user.Level_16_Share_Data_B"/>
+      			<class name="learn.nopcommerce.user.Level_17_Custom_Close_Driver"/>
     		</classes>
   </test> <!-- Test -->
 
