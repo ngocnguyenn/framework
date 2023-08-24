@@ -28,7 +28,7 @@ public class BaseTest {
 	}
 	
     //private String projectPath = System.getProperty("user.dir");
-	protected WebDriver getBrowserDriver(String browserName, String envName)
+	protected WebDriver getBrowserDriver(String browserName, String pageUrl)
 	{
 		BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
 		if(browserList == BrowserList.FIREFOX)
@@ -47,6 +47,7 @@ public class BaseTest {
 		} else if(browserList == BrowserList.CHROME)
 		{
 			//System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver.exe");
+			//WebDriverManager.chromedriver().clearDriverCache().setup();
 			WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
 		} else if(browserList == BrowserList.H_CHROME)
@@ -74,7 +75,7 @@ public class BaseTest {
        
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    	driver.get(envName);
+    	driver.get(pageUrl);
 		return driver;
 		
 		}

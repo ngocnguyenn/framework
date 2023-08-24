@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="NopCommerce">
+<suite name="Sauce">
 	
   <listeners>
 	<listener class-name="commons.MethodListener"/>
@@ -7,11 +7,11 @@
 	<listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
   </listeners>
-	
+  	<parameter name = "pageUrl" value = "https://www.saucedemo.com/"/>
   <test name="Run on Chrome">
   	<parameter name = "browser" value = "chrome"/>
     		<classes>
-      			<class name="learn.nopcommerce.user.Level_17_Custom_Close_Driver"/>
+      			<class name="learn.saucedemo.user.Level_19_Sort_Data"/>
     		</classes>
   </test> <!-- Test -->
 
