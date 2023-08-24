@@ -17,7 +17,7 @@ public class UserProductPageObject extends BasePage{
 		this.driver = driver;
 	}
 	public void selectItemInSortDropDownByValue(String value) {
-		waitForElementClickable(driver, UserProductPageUI.SORT_DROPDOWN);
+		waitForElementVisible(driver, UserProductPageUI.SORT_DROPDOWN);
 		selectItemInDefaultDropDown(driver, UserProductPageUI.SORT_DROPDOWN, value);
 	}
 	public boolean isProductNameSortByAscending() {

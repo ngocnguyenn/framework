@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Sauce">
+<suite name="SauceDemo">
 	
   <listeners>
 	<listener class-name="commons.MethodListener"/>

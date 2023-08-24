@@ -47,7 +47,6 @@ public class BaseTest {
 		} else if(browserList == BrowserList.CHROME)
 		{
 			//System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver.exe");
-			//WebDriverManager.chromedriver().clearDriverCache().setup();
 			WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
 		} else if(browserList == BrowserList.H_CHROME)

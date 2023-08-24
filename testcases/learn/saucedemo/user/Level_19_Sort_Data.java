@@ -23,7 +23,8 @@ public class Level_19_Sort_Data extends BaseTest {
 
     @Parameters({"browser", "pageUrl"})
     @BeforeClass
-    public void beforeClass(String browserName, String sauceUrl) {
+    public void beforeClass(String browserName, String sauceUrl) 
+    {
         driver = getBrowserDriver(browserName, sauceUrl);
         loginPage = new UserLoginPageObject(driver);
         username = "standard_user";
@@ -35,24 +36,25 @@ public class Level_19_Sort_Data extends BaseTest {
     }
 
     @Test
-    public void TC_01_Sort_Name_By_Ascending(Method method)
+    public void TC_01_Sort_Name_By_Descending(Method method)
+    {
+    	ExtentTestManager.startTest(method.getName(),"Sort product name by descending");
+    	ExtentTestManager.getTest().log(Status.INFO, "Sort by descending - Step 01: Select Items Name (Z to A)");
+    	productPage.selectItemInSortDropDownByValue("za");
+    	ExtentTestManager.getTest().log(Status.INFO, "Sort by descending - Step 02: Verify product sort by descending");
+    	productPage.isProductNameSortByDescending();
+    }
+    @Test
+    public void TC_02_Sort_Name_By_Ascending(Method method)
     {
     	ExtentTestManager.startTest(method.getName(),"Sort product name by ascending");
     	ExtentTestManager.getTest().log(Status.INFO, "Sort by ascending - Step 01: Select Items Name (A to Z)");
-    	productPage.selectItemInSortDropDownByValue("Name (Z to A)");
+    	productPage.selectItemInSortDropDownByValue("az");
     	ExtentTestManager.getTest().log(Status.INFO, "Sort by ascending - Step 02: Verify product sort by ascending");
     	Assert.assertTrue(productPage.isProductNameSortByAscending());
     }
     
-    @Test
-    public void TC_02_Sort_Name_By_Descending(Method method)
-    {
-    	ExtentTestManager.startTest(method.getName(),"Sort product name by descending");
-    	ExtentTestManager.getTest().log(Status.INFO, "Sort by descending - Step 01: Select Items Name (Z to A)");
-    	productPage.selectItemInSortDropDownByValue("Name (Z to A)");
-    	ExtentTestManager.getTest().log(Status.INFO, "Sort by descending - Step 02: Verify product sort by descending");
-    	productPage.isProductNameSortByDescending();
-    }
+   
     
    
     @AfterClass(alwaysRun = true)

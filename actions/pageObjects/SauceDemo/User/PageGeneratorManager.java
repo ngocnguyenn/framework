@@ -7,5 +7,5 @@ public class PageGeneratorManager {
 	public static UserProductPageObject getUserProductPageObject(WebDriver driver)
 	{
 		return new UserProductPageObject(driver);
-	
+	}
 }
