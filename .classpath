@@ -47,5 +47,9 @@
 	<classpathentry kind="lib" path="libWebDriverManager/jna-5.12.1.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/slf4j-api-2.0.7.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/webdrivermanager-5.4.1.jar"/>
+	<classpathentry kind="lib" path="libJavaFaker/commons-lang3-3.5.jar"/>
+	<classpathentry kind="lib" path="libJavaFaker/generex-1.0.2.jar"/>
+	<classpathentry kind="lib" path="libJavaFaker/javafaker-1.0.1.jar"/>
+	<classpathentry kind="lib" path="libJavaFaker/snakeyaml-1.23.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
