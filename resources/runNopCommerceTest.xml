@@ -11,7 +11,7 @@
   <test name="Run on Chrome">
   	<parameter name = "browser" value = "chrome"/>
     		<classes>
-      			<class name="learn.nopcommerce.user.Level_20_Fake_Data_With_JVFaker"/>
+      			<class name="learn.nopcommerce.user.Level_21_Manage_Data_External"/>
     		</classes>
   </test> <!-- Test -->
 
