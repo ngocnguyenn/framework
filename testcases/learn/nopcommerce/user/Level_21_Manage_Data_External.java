@@ -86,7 +86,7 @@ public class Level_21_Manage_Data_External extends BaseTest {
     	homePage = loginPage.clickToLoginButton();
 
     	ExtentTestManager.getTest().log(Status.INFO, "Login - Step 05: Verify My Account link is display");
-    	Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
+    	Assert.assertFalse(homePage.isMyAccountLinkDisplayed());
     }
     
    

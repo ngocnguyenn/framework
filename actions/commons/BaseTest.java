@@ -28,7 +28,7 @@ public class BaseTest {
 	}
 	
     //private String projectPath = System.getProperty("user.dir");
-	protected WebDriver getBrowserDriver(String browserName, String pageUrl)
+	protected WebDriver getBrowserDriver(String browserName, String envName)
 	{
 		BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
 		if(browserList == BrowserList.FIREFOX)
@@ -74,10 +74,58 @@ public class BaseTest {
        
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    	driver.get(pageUrl);
+    	driver.get(getEnviromentUrl(envName));
 		return driver;
-		
+	}
+	protected WebDriver getBrowserDriver_By_Url(String browserName, String envUrl)
+	{
+		BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
+		if(browserList == BrowserList.FIREFOX)
+		{
+            //System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();
+            driver = new FirefoxDriver();
+		} else if(browserList == BrowserList.H_FIREFOX)
+		{
+			//System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();
+			FirefoxOptions options = new FirefoxOptions();
+			options.addArguments("--headless");
+			options.addArguments("window-size=1920x1080");
+            driver = new FirefoxDriver(options);
+		} else if(browserList == BrowserList.CHROME)
+		{
+			//System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
+		} else if(browserList == BrowserList.H_CHROME)
+		{
+			//System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--headless");
+			options.addArguments("window-size=1920x1080");
+            driver = new ChromeDriver(options);
+		} else if(browserList == BrowserList.OPERA)
+		{
+			//System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver.exe");
+			WebDriverManager.operadriver().setup();
+            driver = new ChromeDriver();
+		} else if (browserList == BrowserList.EDGE)
+		{
+			//System.setProperty("webdriver.edge.driver", projectPath + "/browserDrivers/msedgedriver.exe");
+			WebDriverManager.edgedriver().setup();
+            driver = new EdgeDriver();
+		} else {
+			throw new RuntimeException ("Browser name invalid.");
 		}
+		
+       
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    	driver.get(envUrl);
+		return driver;
+	}
 	protected boolean verifyTrue(boolean condition) {
 		boolean pass = true;
 		try {
@@ -183,17 +231,17 @@ public class BaseTest {
 			}
 		}
 	}
-	/*private String getEnviromentUrl(String envName)
+	private String getEnviromentUrl(String envName)
 	{
 		String envUrl = null;
-		EnviromentList envList = EnviromentList.valueOf(envName.toUpperCase());
-		if (envList == EnviromentList.DEV)
+		EnvironmentList envList = EnvironmentList.valueOf(envName.toUpperCase());
+		if (envList == EnvironmentList.DEV)
 		{
 			envUrl = "https://demo.nopcommerce.com/";
-		} else if (envList == EnviromentList.TEST)
+		} else if (envList == EnvironmentList.TEST)
 		{
 			envUrl = "https://demo.nopcommerce.com/";
 		}
 		return envUrl;
-	}*/
+	}
 }

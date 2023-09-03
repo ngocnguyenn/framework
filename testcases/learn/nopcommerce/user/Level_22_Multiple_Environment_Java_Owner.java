@@ -1,6 +1,8 @@
 package learn.nopcommerce.user;
 
 import java.lang.reflect.Method;
+
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -11,26 +13,30 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 
 import commons.BaseTest;
-import commons.DataHelper;
-import commons.GlobalConstants;
 import learn.nopcommerce.data.UserData1;
 import pageObjects.NopCommerce.User.UserHomePageObject;
 import pageObjects.NopCommerce.User.UserLoginPageObject;
 import pageObjects.NopCommerce.User.UserRegisterPageObject;
 import reportConfigs.ExtentTestManager;
+import utilities.Environment;
 
-public class Level_21_Manage_Data_Internal extends BaseTest {
+public class Level_22_Multiple_Environment_Java_Owner extends BaseTest {
 	private WebDriver driver;
     private String firstName, lastName, password, validEmail;
     
     private UserHomePageObject homePage;
     private UserRegisterPageObject registerPage;
     private UserLoginPageObject loginPage;
+    Environment env;
 
     @Parameters({"browser", "envName"})
     @BeforeClass
-    public void beforeClass(String browserName, String enviromentName) {
-        driver = getBrowserDriver(browserName, enviromentName);
+    public void beforeClass(String browserName, String environment) {
+    	ConfigFactory.setProperty("env",environment);
+    	env = ConfigFactory.create(Environment.class);
+        driver = getBrowserDriver_By_Url(browserName, env.appUrl());
+        System.out.println(env.getUsername());
+        System.out.println(env.getPassword());
         firstName = UserData1.NewUser.FIRSTNAME;
     	lastName = UserData1.NewUser.LASTNAME;
     	password = UserData1.NewUser.PASSWORD;

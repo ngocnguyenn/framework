@@ -19,7 +19,7 @@ import pageObjects.NopCommerce.User.UserLoginPageObject;
 import pageObjects.NopCommerce.User.UserRegisterPageObject;
 import reportConfigs.ExtentTestManager;
 
-public class Level_21_Manage_Data_Internal extends BaseTest {
+public class Level_22_Multiple_Environment_Pamaeter_TestNG extends BaseTest {
 	private WebDriver driver;
     private String firstName, lastName, password, validEmail;
     

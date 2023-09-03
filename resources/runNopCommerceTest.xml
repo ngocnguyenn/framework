@@ -4,14 +4,16 @@
   <listeners>
 	<listener class-name="commons.MethodListener"/>
 	<listener class-name="reportConfigs.ReportNGListener"/>
+	<listener class-name="reportConfigs.ExtentTestListener"/>
 	<listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
   </listeners>
 	
+	<parameter name = "envName" value = "dev"/>
   <test name="Run on Chrome">
   	<parameter name = "browser" value = "chrome"/>
     		<classes>
-      			<class name="learn.nopcommerce.user.Level_21_Manage_Data_External"/>
+      			<class name="learn.nopcommerce.user.Level_22_Multiple_Enviroment_Java_Owner"/>
     		</classes>
   </test> <!-- Test -->
 
