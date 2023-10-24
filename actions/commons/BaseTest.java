@@ -1,8 +1,10 @@
 package commons;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.net.URL;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -17,7 +19,10 @@ import org.testng.Reporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class BaseTest {
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public class BaseTest{
 
 	protected WebDriver driver;
 	protected final Log log;
@@ -126,6 +131,30 @@ public class BaseTest {
     	driver.get(envUrl);
 		return driver;
 	}
+	protected WebDriver getBrowserDriver_BrowserStack(String url, String osName, String osVersion, String browserName, String browserVersion)
+	{
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setCapability("os", osName);
+		capability.setCapability("os_version", osVersion);
+		capability.setCapability("browser", browserName);
+		capability.setCapability("browser_version", browserVersion);
+		capability.setCapability("browserstack.debug", "true");
+		capability.setCapability("resolution", "1920x1080");
+		capability.setCapability("name", "Run on " + osName + " and " + browserName + "with version " + browserVersion);
+		
+		try 
+		{
+			driver = new RemoteWebDriver(new URL(GlobalConstants.BROWSER_STACK_URL), capability);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    	driver.get(url);
+		return driver;
+	}
+	
 	protected boolean verifyTrue(boolean condition) {
 		boolean pass = true;
 		try {

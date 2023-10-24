@@ -26,4 +26,9 @@ public class GlobalConstants {
 	public static final long SHORT_TIMEOUT = 5;
 	public static final long LONG_TIMEOUT = 30;
 	public static final long RETRY_TEST_FAIL = 3;
+	
+	
+	public static final String BROWSER_USERNAME = "ngcnguyn_641Sxt";
+	public static final String BROWSER_ACCESS_KEY = "cqcuXBox4QtDbyd3Yjut";
+	public static final String BROWSER_STACK_URL = "http://" + BROWSER_USERNAME + ":" + BROWSER_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 }
