@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import commons.BaseTest;
@@ -20,19 +21,16 @@ public class Level_05_Page_Factory_Register extends BaseTest {
     private RegisterPageObject registerPage;
 
 
-    @Parameters("browser")
+    @Parameters({"envName", "serverName", "browser", "ipAddress", "portNumber", "osName", "osVersion"})
     @BeforeClass
-    public void beforeClass(String browserName) {
-    	driver = getBrowserDriver(browserName, GlobalConstants.USER_PAGE_URL);
+    public void beforeClass(@Optional("local") String envName, @Optional("dev") String serverName, @Optional("chrome") String browserName, @Optional("localhost") String ipAddress, @Optional("4444") String portNumber, @Optional("Windows") String osName, @Optional("10") String osVersion) {
+        driver = getBrowserDriver(envName,serverName, browserName, ipAddress, portNumber, osName, osVersion);
     	firstName = "Automation";
     	lastName = "FC";
     	passWord = "12345678";
     	emailAddress = "automation" + getRandomNumber() + "@gmail.com";
         homePage = new HomePageObject(driver);
         registerPage = new RegisterPageObject(driver);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    	driver.get("https://demo.nopcommerce.com/");
     }
 
     @Test

@@ -4,6 +4,7 @@ import java.util.Random;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import commons.BaseTest;
@@ -20,10 +21,10 @@ public class Level_12_Assert_Verify extends BaseTest {
     private UserRegisterPageObject registerPage;
     private UserLoginPageObject loginPage;
 
-    @Parameters("browser")
+    @Parameters({"envName", "serverName", "browser", "ipAddress", "portNumber", "osName", "osVersion"})
     @BeforeClass
-    public void beforeClass(String browserName) {
-        driver = getBrowserDriver(browserName, GlobalConstants.USER_PAGE_URL);
+    public void beforeClass(@Optional("local") String envName, @Optional("dev") String serverName, @Optional("chrome") String browserName, @Optional("localhost") String ipAddress, @Optional("4444") String portNumber, @Optional("Windows") String osName, @Optional("10") String osVersion) {
+        driver = getBrowserDriver(envName,serverName, browserName, ipAddress, portNumber, osName, osVersion);
         firstName = "Automation";
     	lastName = "FC";
     	password = "12345678";

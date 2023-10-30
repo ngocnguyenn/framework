@@ -8,12 +8,12 @@
 	<listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
   </listeners>
-	
-	<parameter name = "envName" value = "dev"/>
+	<paramter name = "envName" value = "local"/>
+	<parameter name = "serverName" value = "dev"/>
   <test name="Run on Chrome">
   	<parameter name = "browser" value = "chrome"/>
     		<classes>
-      			<class name="learn.nopcommerce.user.Level_22_Multiple_Enviroment_Java_Owner"/>
+      			<class name="learn.nopcommerce.user.Level_23_Browser_Factory"/>
     		</classes>
   </test> <!-- Test -->
 

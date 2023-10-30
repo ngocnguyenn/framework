@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -19,7 +20,7 @@ import pageObjects.NopCommerce.User.UserLoginPageObject;
 import pageObjects.NopCommerce.User.UserRegisterPageObject;
 import reportConfigs.ExtentTestManager;
 
-public class Level_23_Browser_Stack extends BaseTest {
+public class Level_23_Browser_Factory extends BaseTest {
 	private WebDriver driver;
     private String firstName, lastName, password, validEmail;
     
@@ -28,10 +29,10 @@ public class Level_23_Browser_Stack extends BaseTest {
     private UserLoginPageObject loginPage;
 
     
-    @Parameters({"os", "os_version", "browser", "browser_version", "url"})
+    @Parameters({"envName", "serverName", "browser", "ipAddress", "portNumber", "osName", "osVersion"})
     @BeforeClass
-    public void beforeClass( String osName, String osVersion, String browser, String browserVersion, String url) {
-        driver = getBrowserDriver_BrowserStack(url, osName, osVersion, browser, browserVersion);
+    public void beforeClass(@Optional("local") String envName, @Optional("dev") String serverName, @Optional("chrome") String browserName, @Optional("localhost") String ipAddress, @Optional("4444") String portNumber, @Optional("Windows") String osName, @Optional("10") String osVersion) {
+        driver = getBrowserDriver(envName,serverName, browserName, ipAddress, portNumber, osName, osVersion);
         firstName = UserData1.NewUser.FIRSTNAME;
     	lastName = UserData1.NewUser.LASTNAME;
     	password = UserData1.NewUser.PASSWORD;

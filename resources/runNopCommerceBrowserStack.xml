@@ -10,13 +10,14 @@
   </listeners>
 	
   <test name="Run on Chrome">
-	<parameter name = "url" value = "https://demo.nopcommerce.com/"/>
+	<parameter name = "envName" value = "browserStack"/>>
+	<parameter name = "serverName" value = "dev"/>
 	<parameter name = "os" value = "Windows"/>
 	<parameter name = "os_version" value = "10"/>
   	<parameter name = "browser" value = "Firefox"/>
   	<parameter name = "browser_version" value = "102"/>
     		<classes>
-      			<class name="learn.nopcommerce.user.Level_23_Browser_Stack"/>
+      			<class name="learn.nopcommerce.user.Level_23_Browser_Factory"/>
     		</classes>
   </test> <!-- Test -->
 

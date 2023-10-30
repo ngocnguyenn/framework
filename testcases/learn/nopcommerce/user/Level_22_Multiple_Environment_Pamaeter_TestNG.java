@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -27,10 +28,10 @@ public class Level_22_Multiple_Environment_Pamaeter_TestNG extends BaseTest {
     private UserRegisterPageObject registerPage;
     private UserLoginPageObject loginPage;
 
-    @Parameters({"browser", "envName"})
+    @Parameters({"envName", "serverName", "browser", "ipAddress", "portNumber", "osName", "osVersion"})
     @BeforeClass
-    public void beforeClass(String browserName, String enviromentName) {
-        driver = getBrowserDriver(browserName, enviromentName);
+    public void beforeClass(@Optional("local") String envName, @Optional("dev") String serverName, @Optional("chrome") String browserName, @Optional("localhost") String ipAddress, @Optional("4444") String portNumber, @Optional("Windows") String osName, @Optional("10") String osVersion) {
+    	driver = getBrowserDriver(envName,serverName, browserName, ipAddress, portNumber, osName, osVersion);
         firstName = UserData1.NewUser.FIRSTNAME;
     	lastName = UserData1.NewUser.LASTNAME;
     	password = UserData1.NewUser.PASSWORD;

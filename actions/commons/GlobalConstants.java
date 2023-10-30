@@ -31,4 +31,12 @@ public class GlobalConstants {
 	public static final String BROWSER_USERNAME = "ngcnguyn_641Sxt";
 	public static final String BROWSER_ACCESS_KEY = "cqcuXBox4QtDbyd3Yjut";
 	public static final String BROWSER_STACK_URL = "http://" + BROWSER_USERNAME + ":" + BROWSER_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
+	
+	public static final String SAUCE_USERNAME = "";
+	public static final String SAUCE_AUTOMATE_KEY = "";
+	public static final String SAUCE_URL = "https://" + SAUCE_USERNAME + ":" + SAUCE_AUTOMATE_KEY + "@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
+	
+	public static final String LAMBDA_USERNAME = "";
+	public static final String LAMBDA_ACCESS_KEY = "";
+	public static final String LAMBDA_URL = "https://" + LAMBDA_USERNAME + ":" + LAMBDA_ACCESS_KEY + "@hub.lambdatest.com/wd/hub";
 }

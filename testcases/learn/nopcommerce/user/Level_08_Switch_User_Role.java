@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import commons.BaseTest;
@@ -26,16 +27,16 @@ public class Level_08_Switch_User_Role extends BaseTest {
     
     private AdminLoginPageObject adminLoginPage;
     private AdminHomePageObject adminHomePage;
-    @Parameters("browser")
+    @Parameters({"envName", "serverName", "browser", "ipAddress", "portNumber", "osName", "osVersion"})
     @BeforeClass
-    public void beforeClass(String browserName) {
+    public void beforeClass(@Optional("local") String envName, @Optional("dev") String serverName, @Optional("chrome") String browserName, @Optional("localhost") String ipAddress, @Optional("4444") String portNumber, @Optional("Windows") String osName, @Optional("10") String osVersion) {
+        driver = getBrowserDriver(envName,serverName, browserName, ipAddress, portNumber, osName, osVersion);
     	firstName = "Automation";
     	lastName = "FC";
     	password = "12345678";
     	adminEmail = "admin@yourstore.com";
     	adminPassword = "admin";
     	validUserEmail = "automation" + getRandomNumber() + "@gmail.com";
-        driver = getBrowserDriver(browserName, GlobalConstants.USER_PAGE_URL);
         userHomePage = new UserHomePageObject(driver);
         userRegisterPage = new UserRegisterPageObject(driver);
         userLoginPage = new UserLoginPageObject(driver);

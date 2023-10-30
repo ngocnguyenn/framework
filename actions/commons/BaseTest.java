@@ -17,6 +17,11 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import factoryEnvironment.BrowserStackFactory;
+import factoryEnvironment.GridFactory;
+import factoryEnvironment.LambdaFactory;
+import factoryEnvironment.LocalFactory;
+import factoryEnvironment.SaucelabFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -33,7 +38,7 @@ public class BaseTest{
 	}
 	
     //private String projectPath = System.getProperty("user.dir");
-	protected WebDriver getBrowserDriver(String browserName, String envName)
+	protected WebDriver getBrowserDriver_By_Name(String browserName, String envName)
 	{
 		BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
 		if(browserList == BrowserList.FIREFOX)
@@ -131,27 +136,32 @@ public class BaseTest{
     	driver.get(envUrl);
 		return driver;
 	}
-	protected WebDriver getBrowserDriver_BrowserStack(String url, String osName, String osVersion, String browserName, String browserVersion)
+	protected WebDriver getBrowserDriver(String envName, String serverName, String browserName, String ipAddress, String portNumber, String osName, String osVersion)
 	{
-		DesiredCapabilities capability = new DesiredCapabilities();
-		capability.setCapability("os", osName);
-		capability.setCapability("os_version", osVersion);
-		capability.setCapability("browser", browserName);
-		capability.setCapability("browser_version", browserVersion);
-		capability.setCapability("browserstack.debug", "true");
-		capability.setCapability("resolution", "1920x1080");
-		capability.setCapability("name", "Run on " + osName + " and " + browserName + "with version " + browserVersion);
-		
-		try 
+		switch(envName)
 		{
-			driver = new RemoteWebDriver(new URL(GlobalConstants.BROWSER_STACK_URL), capability);
-		}
-		catch (MalformedURLException e)
-		{
-			e.printStackTrace();
+		case "local":
+			driver = new LocalFactory(browserName).createDriver();
+			break;
+		case "grid":
+			driver = new GridFactory(browserName, ipAddress, portNumber).createDriver();
+			break;
+		case "browserStack":
+			driver = new BrowserStackFactory(browserName, osName, osVersion).createDriver();
+			break;
+		case "saucelab":
+			driver = new SaucelabFactory(browserName,osName).createDriver();
+			break;
+		case "lambda":
+			driver = new LambdaFactory(browserName, osName).createDriver();
+			break;
+		default:
+			driver = new LocalFactory(browserName).createDriver();
+			break;
 		}
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    	driver.get(url);
+        driver.manage().window().maximize();
+    	driver.get(getEnviromentUrl(serverName));
 		return driver;
 	}
 	
