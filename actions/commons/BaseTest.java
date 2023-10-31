@@ -17,6 +17,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import factoryBrowser.BrowserList;
 import factoryEnvironment.BrowserStackFactory;
 import factoryEnvironment.GridFactory;
 import factoryEnvironment.LambdaFactory;

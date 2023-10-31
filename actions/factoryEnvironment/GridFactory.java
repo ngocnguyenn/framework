@@ -12,9 +12,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import factoryBrowser.BrowserList;
+
 import java.net.MalformedURLException;
 import java.net.URL;
-import commons.BrowserList;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class GridFactory {
