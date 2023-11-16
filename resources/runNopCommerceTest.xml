@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="NopCommerce">
+<suite name="NopCommerce" parallel = "tests" thread-cout="3">
 	
   <listeners>
 	<listener class-name="commons.MethodListener"/>
@@ -12,6 +12,12 @@
 	<parameter name = "serverName" value = "dev"/>
   <test name="Run on Chrome">
   	<parameter name = "browser" value = "chrome"/>
+    		<classes>
+      			<class name="learn.nopcommerce.user.Level_23_Browser_Factory"/>
+    		</classes>
+  </test> <!-- Test -->
+  <test name="Run on Firefox">
+  	<parameter name = "browser" value = "firefox"/>
     		<classes>
       			<class name="learn.nopcommerce.user.Level_23_Browser_Factory"/>
     		</classes>

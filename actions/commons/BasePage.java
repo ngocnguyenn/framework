@@ -413,9 +413,9 @@ public class BasePage {
 		return getElement(driver, locatorType).isDisplayed();
 	}
 	public boolean isElementUndisplayed(WebDriver driver, String locatorType) {
-		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
+		overrideGlobalTimeout(driver, GlobalConstants.getGloabalConstant().getShortTimeout());
 		List<WebElement> elements = getElements(driver, locatorType);
-		overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+		overrideGlobalTimeout(driver, GlobalConstants.getGloabalConstant().getLongTimeout());
 		if(elements.size()==0)
 		{
 			return true;
@@ -426,9 +426,9 @@ public class BasePage {
 	}
 	public boolean isElementUndisplayed(WebDriver driver, String locatorType, String...dynamicValues) {
 		locatorType = String.format(locatorType,(Object[]) dynamicValues);
-		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
+		overrideGlobalTimeout(driver, GlobalConstants.getGloabalConstant().getShortTimeout());
 		List<WebElement> elements = getElements(driver, locatorType);
-		overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+		overrideGlobalTimeout(driver, GlobalConstants.getGloabalConstant().getLongTimeout());
 		if(elements.size()==0)
 		{
 			return true;
@@ -581,9 +581,9 @@ public class BasePage {
     protected void waitForElementUndisplayed(WebDriver driver, String locatorType)
     {
     	WebDriverWait explicitWait = new WebDriverWait(driver, longTimeOut);
-    	overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
+    	overrideGlobalTimeout(driver, GlobalConstants.getGloabalConstant().getShortTimeout());
     	explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByLocator(locatorType)));
-    	overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+    	overrideGlobalTimeout(driver, GlobalConstants.getGloabalConstant().getLongTimeout());
     }
     protected void waitForElementVisible(WebDriver driver, String locatorType)
     {
@@ -633,7 +633,7 @@ public class BasePage {
 
     public void uploadMultipleFiles(WebDriver driver, String...fileNames)
     {
-    	String filePath = GlobalConstants.UPLOAD_FILE;
+    	String filePath = GlobalConstants.getGloabalConstant().getUploadFile();
     	String fullFileName = "";
     	for (String file:fileNames)
     	{
@@ -651,6 +651,6 @@ public class BasePage {
             e.printStackTrace();
         }
     }
-    private long longTimeOut = GlobalConstants.LONG_TIMEOUT;
+    private long longTimeOut = GlobalConstants.getGloabalConstant().getLongTimeout();
 }
 

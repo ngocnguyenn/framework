@@ -1,3 +1,4 @@
-[INFO ] [2023-10-30 19:02:52,941] OS name = Windows 11
-[INFO ] [2023-10-30 19:02:52,942] Driver instance name = chromedriver: chrome on windows (814939e8489866ce5d30af0b8bec03ce)
-2f5332bff)
+[INFO ] [2023-11-16 21:33:46,699] OS name = Windows 11
+[INFO ] [2023-11-16 21:33:46,701] Driver instance name = chromedriver: chrome on windows (c81d85b8fbd27f4465f101c62b443f46)
+[INFO ] [2023-11-16 21:33:47,434] OS name = Windows 11
+[INFO ] [2023-11-16 21:33:47,434] Driver instance name = firefoxdriver: firefox on windows (83d115f3-9d8a-4eb4-9bfa-453745f63dd8)

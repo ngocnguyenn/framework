@@ -14,7 +14,7 @@ public class FirefoxDriverManager implements BrowserFactory{
 		WebDriverManager.firefoxdriver().setup();
 		FirefoxOptions options = new FirefoxOptions();
 		options.addPreference("browser.download.folderList", 2);
-		options.addPreference("browser.download.dir", GlobalConstants.DOWNLOAD_FILE);
+		options.addPreference("browser.download.dir", GlobalConstants.getGloabalConstant().getDownloadFile());
 		options.addPreference("pdfjs.disabled", true);
 		return new FirefoxDriver(options);
 	}

@@ -297,6 +297,6 @@ public class BasePageFactory {
             e.printStackTrace();
         }
     }
-    private long longTimeOut = GlobalConstants.LONG_TIMEOUT;
+    private long longTimeOut = GlobalConstants.getGloabalConstant().getLongTimeout();
 }
 

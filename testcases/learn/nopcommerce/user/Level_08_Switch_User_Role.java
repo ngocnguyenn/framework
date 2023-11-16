@@ -16,6 +16,7 @@ import pageObjects.NopCommerce.Admin.AdminLoginPageObject;
 import pageObjects.NopCommerce.User.UserHomePageObject;
 import pageObjects.NopCommerce.User.UserLoginPageObject;
 import pageObjects.NopCommerce.User.UserRegisterPageObject;
+import utilities.PropertiesConfig;
 
 public class Level_08_Switch_User_Role extends BaseTest {
 	private WebDriver driver;
@@ -67,7 +68,7 @@ public class Level_08_Switch_User_Role extends BaseTest {
     @Test
     public void TC_03_Switch_Admin_Page()
     {
-    	userHomePage.openPageUrl(driver, GlobalConstants.ADMIN_PAGE_URL);
+    	userHomePage.openPageUrl(driver, PropertiesConfig.getFileConfigReader().getAdminUrl());
     	adminLoginPage = PageGeneratorManager.getAdminLoginPageObject(driver);
     	adminHomePage = adminLoginPage.loginAsAdmin(adminEmail, adminPassword);
     	Assert.assertEquals(adminHomePage.getDashboardHeader(),"Dashboard");

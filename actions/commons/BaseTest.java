@@ -226,7 +226,7 @@ public class BaseTest{
 	protected void closeBrowserDriver() {
 		String cmd = null;
 		try {
-			String osName = GlobalConstants.OS_NAME;
+			String osName = GlobalConstants.getGloabalConstant().getOsName();
 			log.info("OS name = " + osName);
 
 			String driverInstanceName = driver.toString().toLowerCase();
