@@ -20,100 +20,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageObjects.NopCommerce.User.UserAddressPageObject;
-import pageObjects.NopCommerce.User.UserBackInStockSubPageObject;
-import pageObjects.NopCommerce.User.UserChangePasswordPageObject;
-import pageObjects.NopCommerce.User.UserCustomerInforPageObject;
-import pageObjects.NopCommerce.User.UserDownloadablePageObject;
-import pageObjects.NopCommerce.User.UserMyProductReviewPageObject;
-import pageObjects.NopCommerce.User.UserOrdersPageObject;
-import pageObjects.NopCommerce.User.UserRewardPointPageObject;
 import pageUIsJQueryScript.BasePageUI;
-import pageUIsNopCommerceUser.UserBasePageUI;
 
 public class BasePage {
 	public static BasePage getBasePageObject()
 	{
 		return new BasePage();
-	}
-	public UserCustomerInforPageObject openCustomerInforPage(WebDriver driver)
-	{
-		waitForElementClickable(driver,UserBasePageUI.CUSTOMER_INFOR_LINK);
-		clickToElement(driver,UserBasePageUI.CUSTOMER_INFOR_LINK);
-		return PageGeneratorManager.getUserCustomerInforPageObject(driver);
-	}
-	public UserAddressPageObject openAddressPage(WebDriver driver)
-	{
-		waitForElementClickable(driver,UserBasePageUI.ADDRESS_LINK);
-		clickToElement(driver, UserBasePageUI.ADDRESS_LINK);
-		return PageGeneratorManager.getUserAddressPageObject(driver);
-	}
-	public UserOrdersPageObject openOrdersPage(WebDriver driver)
-	{
-		waitForElementClickable(driver,UserBasePageUI.ORDERS_LINK);
-		clickToElement(driver, UserBasePageUI.ORDERS_LINK);
-		return PageGeneratorManager.getUserOrderPageObject(driver);
-	}
-	public UserDownloadablePageObject openDownloadablePage(WebDriver driver)
-	{
-		waitForElementClickable(driver,UserBasePageUI.DOWNLOADABLE_PRODUCT_LINK);
-		clickToElement(driver, UserBasePageUI.DOWNLOADABLE_PRODUCT_LINK);
-		return PageGeneratorManager.getUserDownloadablePageObject(driver);
-	}
-	public UserBackInStockSubPageObject openBackInStockSubPage(WebDriver driver)
-	{
-		waitForElementClickable(driver,UserBasePageUI.BACKINSTOCKSUB_LINK);
-		clickToElement(driver, UserBasePageUI.BACKINSTOCKSUB_LINK);
-		return PageGeneratorManager.getUserBackInStockSubPageObject(driver);
-	}
-	public UserRewardPointPageObject openRewardPointPage(WebDriver driver)
-	{
-		waitForElementClickable(driver,UserBasePageUI.REWARD_POINT_LINK);
-		clickToElement(driver, UserBasePageUI.REWARD_POINT_LINK);
-		return PageGeneratorManager.getUserRewardPointPageObject(driver);
-	}
-	public UserChangePasswordPageObject openChangePasswordPage(WebDriver driver)
-	{
-		waitForElementClickable(driver,UserBasePageUI.CHANGE_PASSWORD_LINK);
-		clickToElement(driver, UserBasePageUI.CHANGE_PASSWORD_LINK);
-		return PageGeneratorManager.getUserChangePasswordPageObject(driver);
-	}
-	public UserMyProductReviewPageObject openMyProductReviewPage(WebDriver driver)
-	{
-		waitForElementClickable(driver,UserBasePageUI.MY_PRODUCT_REVIEW_LINK);
-		clickToElement(driver, UserBasePageUI.MY_PRODUCT_REVIEW_LINK);
-		return PageGeneratorManager.getUserMyProductReviewPageObject(driver);
-	}
-	
-	public BasePage openPageAtMyAccountByPageName_I(WebDriver driver, String pageName)
-	{
-		waitForElementClickable(driver, UserBasePageUI.DYNAMIC_LOCATOR_LINK, pageName);
-		clickToElement(driver, UserBasePageUI.DYNAMIC_LOCATOR_LINK, pageName);
-		switch (pageName)
-		{
-		case "Addresses":
-			return PageGeneratorManager.getUserAddressPageObject(driver);
-		case "Orders":
-			return PageGeneratorManager.getUserOrderPageObject(driver);
-		case "Downloadable products":
-			return PageGeneratorManager.getUserDownloadablePageObject(driver);
-		case "Back in stock subscriptions":
-			return PageGeneratorManager.getUserBackInStockSubPageObject(driver);
-		case "Reward points":
-			return PageGeneratorManager.getUserRewardPointPageObject(driver);
-		case "Change password":
-			return PageGeneratorManager.getUserChangePasswordPageObject(driver);
-		case "My product reviews":
-			return PageGeneratorManager.getUserMyProductReviewPageObject(driver);
-		case "Customer info":
-			return PageGeneratorManager.getUserCustomerInforPageObject(driver);
-		default: return null;
-		}
-	}
-	public void openPageAtMyAccountByPageName_II(WebDriver driver, String pageName)
-	{
-		waitForElementClickable(driver, UserBasePageUI.DYNAMIC_LOCATOR_LINK, pageName);
-		clickToElement(driver, UserBasePageUI.DYNAMIC_LOCATOR_LINK, pageName);
 	}
 	
 	public void openPageUrl(WebDriver driver, String pageUrl)
