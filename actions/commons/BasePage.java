@@ -21,6 +21,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pageUIsJQueryScript.BasePageUI;
+import utilities.PropertiesConfig;
 
 public class BasePage {
 	public static BasePage getBasePageObject()
@@ -325,9 +326,9 @@ public class BasePage {
 		return getElement(driver, locatorType).isDisplayed();
 	}
 	public boolean isElementUndisplayed(WebDriver driver, String locatorType) {
-		overrideGlobalTimeout(driver, GlobalConstants.getGloabalConstant().getShortTimeout());
+		overrideGlobalTimeout(driver, PropertiesConfig.getFileConfigReader().getShortTimeout());
 		List<WebElement> elements = getElements(driver, locatorType);
-		overrideGlobalTimeout(driver, GlobalConstants.getGloabalConstant().getLongTimeout());
+		overrideGlobalTimeout(driver, PropertiesConfig.getFileConfigReader().getLongTimeout());
 		if(elements.size()==0)
 		{
 			return true;
@@ -338,9 +339,9 @@ public class BasePage {
 	}
 	public boolean isElementUndisplayed(WebDriver driver, String locatorType, String...dynamicValues) {
 		locatorType = String.format(locatorType,(Object[]) dynamicValues);
-		overrideGlobalTimeout(driver, GlobalConstants.getGloabalConstant().getShortTimeout());
+		overrideGlobalTimeout(driver, PropertiesConfig.getFileConfigReader().getShortTimeout());
 		List<WebElement> elements = getElements(driver, locatorType);
-		overrideGlobalTimeout(driver, GlobalConstants.getGloabalConstant().getLongTimeout());
+		overrideGlobalTimeout(driver, PropertiesConfig.getFileConfigReader().getLongTimeout());
 		if(elements.size()==0)
 		{
 			return true;
@@ -493,9 +494,9 @@ public class BasePage {
     protected void waitForElementUndisplayed(WebDriver driver, String locatorType)
     {
     	WebDriverWait explicitWait = new WebDriverWait(driver, longTimeOut);
-    	overrideGlobalTimeout(driver, GlobalConstants.getGloabalConstant().getShortTimeout());
+    	overrideGlobalTimeout(driver, PropertiesConfig.getFileConfigReader().getShortTimeout());
     	explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByLocator(locatorType)));
-    	overrideGlobalTimeout(driver, GlobalConstants.getGloabalConstant().getLongTimeout());
+    	overrideGlobalTimeout(driver, PropertiesConfig.getFileConfigReader().getLongTimeout());
     }
     protected void waitForElementVisible(WebDriver driver, String locatorType)
     {
@@ -563,6 +564,6 @@ public class BasePage {
             e.printStackTrace();
         }
     }
-    private long longTimeOut = GlobalConstants.getGloabalConstant().getLongTimeout();
+    private long longTimeOut = PropertiesConfig.getFileConfigReader().getLongTimeout();
 }
 
